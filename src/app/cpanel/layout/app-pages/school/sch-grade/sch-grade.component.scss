@@ -1,0 +1,16 @@
+.sch-grade-cont {
+  // position: relative;
+}
+
+.print {
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media print {
+
+}

@@ -1,0 +1,139 @@
+<div class="add-student-cont">
+
+  <mat-card-title class="card-title">Add new Student</mat-card-title>
+  <!-- Form -->
+  <form name="form" [formGroup]="form" (submit)="submit()" *ngIf="form">
+    <div class="form-cont">
+      <!-- Form Container -->
+      <div class="flex-row__with-img">
+
+        <div class="flex-row__with-img__col">
+          <!-- First Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>{{student.firstName}}</mat-label>
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error>First Name Required</mat-error>
+          </mat-form-field>
+
+          <!-- Last Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>{{student.lastName}}</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error>Last Name Required</mat-error>
+          </mat-form-field>
+          <!-- Address -->
+          <mat-form-field appearance="outline">
+              <mat-label>{{student.address}}</mat-label>
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <mat-icon fontSet="fa" fontIcon="fa-map-marker-alt"></mat-icon>
+            <mat-error>Address is Required</mat-error>
+          </mat-form-field>
+          <!-- <button mat-raised-button color="primary">Upload</button> -->
+        </div><!-- -->
+        <div class="flex-row__with-img__upload-cont">
+          <button type="button" class="flex-row__with-img__btn" mat-raised-button color="primary"
+            (click)="fileInput.click()">Upload</button>
+          <!-- <mat-form-field> -->
+          <input hidden type="file" (change)="uploadImg($event)" #fileInput>
+          <!-- <mat-error>Gender is Required</mat-error> -->
+          <!-- </mat-form-field> -->
+          <div *ngIf="student.images[0]">
+              <img class="flex-row__with-img__img" *ngIf="!imgObj" [src]="'http://127.0.0.1:8000/images/'+student.images[0].filename" alt="user-image">
+          </div>
+          <img class="flex-row__with-img__img" *ngIf="imgObj" src="{{imgObj.url}}" alt="user-image">
+          <!-- <img class="user-img" src="http://127.0.0.1:8000/images/php3D2A.tmp.jpg" alt="user-image"> -->
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="flex-row flex-row__col-2">
+        <mat-form-field appearance="outline">
+          <mat-label>{{student.gender}}</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error>Gender is Required</mat-error>
+        </mat-form-field>
+
+        <!-- Birth Date -->
+        <mat-form-field appearance="outline">
+            <mat-label>{{student.birthDate}}</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Birth Date Required</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+          <mat-label>{{student.email}}</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>Email Required</mat-error>
+      </mat-form-field>
+
+      <div class="flex-row flex-row__col-2">
+        <!-- Phone Number -->
+        <mat-form-field appearance="outline">
+            <mat-label>{{student.phoneNumber}}</mat-label>
+          <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+          <mat-icon matSuffix>local_phone</mat-icon>
+          <mat-error>Phone Number Required</mat-error>
+        </mat-form-field>
+
+        <!-- Mobile Number -->
+        <mat-form-field appearance="outline">
+            <mat-label>{{student.mobilePhone}}</mat-label>
+          <input matInput placeholder="Mobile Phone" formControlName="mobilePhone">
+          <mat-icon matSuffix>phone_iphone</mat-icon>
+          <mat-error>Mobile Number Required</mat-error>
+        </mat-form-field>
+      </div><!-- -->
+
+      <!-- Medical State -->
+      <mat-form-field appearance="outline">
+          <mat-label>{{student.medicalState}}</mat-label>
+        <textarea matInput placeholder="Medical State" formControlName="medicalState"></textarea>
+        <mat-error>Medical State Required</mat-error>
+      </mat-form-field>
+
+      <!-- Notes -->
+      <mat-form-field appearance="outline">
+        <mat-label>{{student.notes}}</mat-label>
+        <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+      </mat-form-field>
+
+      <div class="flex-row flex-row__col-2">
+
+        <!-- Grade -->
+        <mat-form-field appearance="outline">
+          <mat-label>{{student.student.grade.name}}</mat-label>
+          <mat-select formControlName="grade_id">
+            <mat-option value="{{grade.id}}" *ngFor="let grade of grades">{{ grade.name }}</mat-option>
+          </mat-select>
+          <mat-error>Grade is Required</mat-error>
+        </mat-form-field>
+
+        <!-- Class -->
+        <mat-form-field appearance="outline">
+          <mat-label>{{student.student.class}}</mat-label>
+          <mat-select formControlName="class" >
+            <mat-option value="1-c">Kg-1c</mat-option>
+            <mat-option value="2-c">Kg-2c</mat-option>
+            <mat-option value="4-a">Primary-4a</mat-option>
+            <mat-option value="5-b">Secondary-5b</mat-option>
+          </mat-select>
+          <mat-error>Grade is Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="btn-form-submit">
+        <button color="primary" mat-raised-button [disabled]="!form.valid">Update</button>
+      </div>
+    </div> <!-- End Form Container -->
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<div class="employ-main-cont comp-cont__margin">
+    <mat-card class="form-card-cont">
+
+      <div>
+        <nav mat-tab-nav-bar animationDuration="880ms" mat-align-tabs="center">
+          <a mat-tab-link
+            *ngFor="let link of navLinks"
+            [routerLink]="link.path"
+            routerLinkActive #rla="routerLinkActive"
+            [routerLinkActiveOptions]="{exact:true}"
+            [active]="rla.isActive"
+          >
+            {{link.label}}
+          </a>
+        </nav>
+        <!-- <mat-card-title class="card-title">All Students</mat-card-title> -->
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-card>
+
+
+  </div>

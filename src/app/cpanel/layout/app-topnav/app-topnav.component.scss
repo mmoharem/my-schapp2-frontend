@@ -1,0 +1,27 @@
+.app-topnav-cont {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  background-color: #f5f5f5;
+}
+
+
+
+.app-topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  margin: 0 3rem;
+
+  a {
+    text-decoration: none;
+    color: rgb(105, 105, 105);
+  }
+
+  ul {
+    list-style: none;
+  }
+}

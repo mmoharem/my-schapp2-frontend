@@ -1,0 +1,21 @@
+.app-sidenav-cont {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+
+}
+
+.profile-comp {
+  width: 100%;
+  height: 250px;
+
+  background-color: #1e2129;
+}
+
+.pages-links-comp {
+  width: 100%;
+  height: calc(100vh - 250px);
+
+  background-color: #282c36;
+}

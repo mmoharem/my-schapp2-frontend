@@ -1,0 +1,99 @@
+.sidenav-header {
+
+  &__cont {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 25%;
+
+    & > * {
+      margin-top: 2rem;
+    }
+
+    &--logo {
+      display: inline-block;
+      width: 5rem;
+    }
+
+    &--text {
+      display: inline-block;
+      color: white;
+      font-size: 1.8rem;
+
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // justify-items: flex-end;
+    align-items: center;
+    // align-content: flex-end;
+    height: 75%;
+
+    color: white;
+    font-size: 1.3rem;
+
+    &--name {
+      margin-bottom: .5rem;
+    }
+
+    &--email {
+      margin-bottom: 5rem;
+      color: rgb(151, 150, 150);
+    }
+
+    &--avatar {
+      position: relative;
+      // justify-self: flex-end;
+      height: 40%;
+      width: 100%;
+      background-color: #383f4e;
+      font-size: 1.6rem;
+
+      .avatar-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0.5rem 2rem;
+        color: rgb(151, 150, 150);
+
+      }
+
+      .avatar-circle {
+        position: absolute;
+        display: block;
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        content: '';
+
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #383f4e;
+      }
+
+      .img {
+        position: absolute;
+        display: block;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

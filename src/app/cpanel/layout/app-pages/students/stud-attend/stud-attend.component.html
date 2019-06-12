@@ -1,0 +1,43 @@
+<div class="stud-attend-cont">
+
+  <mat-card-title class="card-title">Add new Student</mat-card-title>
+  <div class="add-attend">
+      <!-- Form -->
+      <form name="form" [formGroup]="form" (submit)="submit()" *ngIf="form">
+          <div class="form-cont">
+            <!-- Form Container -->
+            <div class="flex-row flex-row__col-2">
+              <!-- Attendance 0=absent 1=present -->
+              <mat-form-field appearance="outline">
+                <mat-label>Attendance</mat-label>
+                <mat-select formControlName="attend">
+                  <mat-option value=0>Absent</mat-option>
+                  <mat-option value=1>Present</mat-option>
+                  <!-- <mat-option value="any">grade</mat-option> -->
+                </mat-select>
+              </mat-form-field>
+
+              <!-- Day -->
+              <mat-form-field appearance="outline">
+                <input matInput [matDatepicker]="picker" placeholder="Day" formControlName="day">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>day Required</mat-error>
+              </mat-form-field>
+            </div><!-- -->
+
+            <div class="btn-form-submit">
+                <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+              </div>
+          </div> <!-- End Form Container -->
+        </form>
+  </div>
+
+  <mat-card-title class="card-title" *ngIf="attendData.length">Show Attendance</mat-card-title>
+  <div class="show-attend" *ngIf="attendData.length">
+      <div class="show-attend__data"></div>
+      <div class="show-attend__calendar">
+          <app-calendar2-test [dataInp]="attendData"></app-calendar2-test>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,161 @@
+<!--  -->
+<div class="pages-links__cont">
+  <ul class="pages-links__list">
+      <li class="pages-links__item"><!-- School -->
+        <a class="pages-links__link" onClick toggle=true>
+          <img class="pages-links__link--icon" src="../../../../../assets/icons/school-building.svg" alt="">
+          <!-- <img class="icon pages-links__link--icon" src="../../../../../assets/icons/school-building.svg" alt="school-icon"> -->
+          <!-- <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">account_balance</mat-icon> -->
+          <span class="pages-links__link--text">School</span>
+          <!-- <mat-icon id="toggleArrow" class="collapsable-arrow" role="img" aria-hidden="true">keyboard_arrow_right</mat-icon> -->
+          <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+        </a>
+        <div class="collapsed-menu" style="display:none;">
+          <a routerLink="/school/grade" class="pages-links__link pages-links__link--child">
+            <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+            </mat-icon>
+            <span class="pages-links__link--text pages-links__link--text__child">Grade</span>
+          </a>
+          <a routerLink="/school/fees" class="pages-links__link pages-links__link--child">
+            <mat-icon class="pages-links__link--icon pages-links__link--icon__child" fontSet="fa" fontIcon="fa-comments-dollar">
+            </mat-icon>
+            <span class="pages-links__link--text pages-links__link--text__child">Fees</span>
+          </a>
+          <a routerLink="/students" class="pages-links__link pages-links__link--child">
+            <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+            </mat-icon>
+            <span class="pages-links__link--text pages-links__link--text__child">Students</span>
+          </a>
+        </div>
+      </li>
+    <li class="pages-links__item"><!-- Students -->
+      <a routerLink="/students/showall" class="pages-links__link" onClick toggle=true>
+          <i class="icon pages-links__link--icon fa fa-user-graduate"></i>
+        <!-- <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">school</mat-icon> -->
+        <span class="pages-links__link--text">Students</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+
+      <div class="collapsed-menu" style="display:none;">
+        <!-- Students Main Comp (Show All Students) -->
+        <a routerLink="/students/showall" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" fontSet="fa" fontIcon="fa-hand-holding-usd">
+          </mat-icon>
+          <!-- <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon> -->
+          <span class="pages-links__link--text pages-links__link--text__child">Students</span>
+        </a>
+        <!-- Students Payments -->
+        <a routerLink="/students/payments" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" fontSet="fa" fontIcon="fa-hand-holding-usd">
+          </mat-icon>
+          <!-- <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon> -->
+          <span class="pages-links__link--text pages-links__link--text__child">Payments</span>
+        </a>
+        <!-- Students Update -->
+        <a routerLink="/students/update" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" fontSet="fa" fontIcon="fa-edit">
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Update</span>
+        </a>
+      </div>
+    </li>
+    <!------------------------------------------------------------ Employee ---------------------------------------------->
+    <li class="pages-links__item"><!-- Employee -->
+      <a routerLink="/employee/showemployee" class="pages-links__link" onClick toggle=true>
+          <i class="icon pages-links__link--icon fa fa-user"></i>
+        <!-- <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">account_balance</mat-icon> -->
+        <span class="pages-links__link--text">Employee</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+
+      <div class="collapsed-menu" style="display:none;">
+        <!-- Employee Main Comp (Show All) -->
+        <a routerLink="/employee/showemployee" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Employee</span>
+        </a>
+      </div>
+    </li>
+    <!--------------------------------------------------------- Teachers ------------------------------------------>
+    <li class="pages-links__item"><!-- Teachers -->
+      <a routerLink="/teachers/showteachers" class="pages-links__link" onClick toggle=true>
+          <i class="icon pages-links__link--icon fa fa-user-tie"></i>
+        <!-- <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">account_balance</mat-icon> -->
+        <span class="pages-links__link--text">Teachers</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+
+      <div class="collapsed-menu">
+        <!-- Teachers Main Comp (Show All) -->
+        <a routerLink="/teachers/showteachers" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Teachers</span>
+        </a>
+      </div>
+    </li>
+
+    <!---------------------------------------- Test -->
+    <li class="pages-links__item">
+      <a routerLink="/test" class="pages-links__link">
+        <!-- test -->
+        <img class="pages-links__link--icon" src="../../../../../assets/icons/class.svg" alt="">
+        <span class="pages-links__link--text">Test</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+    </li>
+    <li class="pages-links__item">
+      <!-- Students -->
+      <a routerLink="/students" class="pages-links__link">
+        <img class="pages-links__link--icon" src="../../../../../assets/icons/institution.svg" alt="">
+        <span class="pages-links__link--text">Students</span>
+      </a>
+    </li>
+    <li class="pages-links__item">
+      <a routerLink="/test" class="pages-links__link" onClick toggle=true>
+        <!-- test -->
+        <img class="pages-links__link--icon" src="../../../../../assets/icons/student-of-stick-man-sitting-on-a-chair-on-class-desk.svg" alt="">
+        <span class="pages-links__link--text">Test</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+      <div class="collapsed-menu" style="display:none;">
+        <a routerLink="/students" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Students</span>
+        </a>
+        <a routerLink="/students" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Students</span>
+        </a>
+        <a routerLink="/students" class="pages-links__link pages-links__link--child">
+          <mat-icon class="pages-links__link--icon pages-links__link--icon__child" role="img" aria-hidden="true">today
+          </mat-icon>
+          <span class="pages-links__link--text pages-links__link--text__child">Students</span>
+        </a>
+      </div>
+    </li>
+    <li class="pages-links__item ">
+      <!-- school -->
+      <a routerLink="/school" class="pages-links__link" [matMenuTriggerFor]="school" onClick toggle=true>
+        <img class="pages-links__link--icon" src="../../../../../assets/icons/school-campus.svg" alt="">
+        <span class="pages-links__link--text">School</span>
+        <img class="collapsable-arrow2" src="../../../../../assets/icons/New folder/arrow-point-to-right.svg" alt="">
+      </a>
+      <mat-menu #school="matMenu" xPosition="after">
+        <a routerLink="/school/grade" class="pages-links__link pages-links__link--child" mat-menu-item>
+          <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">today</mat-icon>
+          <span class="pages-links__link--text">Grade</span>
+        </a>
+        <a routerLink="/school/grade" class="pages-links__link pages-links__link--child" mat-menu-item>
+          <mat-icon class="pages-links__link--icon" role="img" aria-hidden="true">today</mat-icon>
+          <span class="pages-links__link--text">Class</span>
+        </a>
+      </mat-menu>
+    </li>
+  </ul>
+</div>

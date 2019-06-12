@@ -1,0 +1,30 @@
+<mat-card-title class="card-title">Add new Grade</mat-card-title>
+<!-- Form -->
+<form name="form" [formGroup]="form" (submit)="submit()">
+  <div class="form-cont">
+    <!-- Form Container -->
+    <div class="flex-row flex-row__col-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Add Grade</mat-label>
+        <input matInput placeholder="Grade Name" formControlName="name" required>
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>Grade Name Required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Select Level</mat-label>
+          <mat-select formControlName="level" required>
+            <mat-option value="kg">K.G.</mat-option>
+            <mat-option value="primary">Primary</mat-option>
+            <mat-option value="preparator">Preparatory</mat-option>
+            <mat-option value="secondary">Secondary</mat-option>
+          </mat-select>
+          <mat-error>Level is Required</mat-error>
+        </mat-form-field>
+    </div><!-- -->
+
+    <div class="btn-form-submit">
+      <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+    </div>
+  </div> <!-- End Form Container -->
+</form>
+<!-- End Of Form -->

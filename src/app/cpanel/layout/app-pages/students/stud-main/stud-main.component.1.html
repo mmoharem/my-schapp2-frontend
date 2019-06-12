@@ -1,0 +1,27 @@
+<div class="stud-main-cont comp-cont__margin">
+  <mat-card class="form-card-cont">
+    <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+      <!-- all students table -->
+      <mat-tab router-link="/students/students/showall" label="Students">
+        <mat-card-title class="card-title">All Students</mat-card-title>
+        <!-- <stud-tables></stud-tables> -->
+        <router-outlet></router-outlet>
+      </mat-tab>
+      <!-- Add new student -->
+      <mat-tab label="Add">
+        <mat-card-title class="card-title">Add new Student</mat-card-title>
+        <students-add-student></students-add-student>
+      </mat-tab>
+      <!--  -->
+      <mat-tab label="Third">Content 3
+          <span class="fab fa-spin fa-github" aria-hidden="true"></span>
+          <!-- <span class="fab fa-refresh fa-spin fa-github" aria-hidden="true"></spin> -->
+      </mat-tab>
+    </mat-tab-group>
+
+  </mat-card>
+
+
+</div>
+
+

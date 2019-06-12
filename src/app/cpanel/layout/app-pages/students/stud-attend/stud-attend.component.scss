@@ -1,0 +1,16 @@
+.stud-attend-cont {
+  position: relative;
+}
+
+.show-attend {
+  display: flex;
+  justify-content: space-around;
+
+  &__calendar {
+    width: 30%;
+  }
+
+  &__data {
+    width: 50%;
+  }
+}

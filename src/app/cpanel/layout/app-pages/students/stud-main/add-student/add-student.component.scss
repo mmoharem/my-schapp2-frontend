@@ -1,0 +1,36 @@
+.flex-r {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+.flex-c {
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 75%;
+  // height: 25rem;
+
+  & > * {
+    &:not(:last-child) {
+      width: 47%;
+    }
+
+    &:last-child {
+      width: 100%;
+    }
+  }
+
+}
+
+.img-input-field {
+  content: "";
+  // flex: 1 0;
+  width: 20rem;
+  height: 21rem;
+  border: 0.5px solid #e0e0e0;
+  border-radius: .5rem;
+}

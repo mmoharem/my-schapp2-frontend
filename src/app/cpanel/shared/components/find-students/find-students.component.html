@@ -1,0 +1,47 @@
+<div class="find-students-cont comp-cont__margin">
+  <div class="flex-row-pay flex-row-pay__ctitle">
+    <mat-card-title class="margin-4rem">Find Student</mat-card-title>
+    <div class="btn-form-submit margin-4rem">
+      <button color="primary" mat-raised-button (click)="submit()" type="submit" form="form"
+        [disabled]="!form.valid">Find</button>
+    </div>
+  </div>
+  <!-- Form -->
+  <form name="form" [formGroup]="form" (submit)="submit()">
+    <div class="form-cont">
+      <!-- Form Container -->
+      <div class="flex-row flex-row__col-2">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="First Name" formControlName="firstName">
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>First Name Required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Last Name" formControlName="lastName">
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </div><!-- -->
+      <div class="flex-row flex-row__col-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Grade</mat-label>
+          <mat-select formControlName="grade_id">
+            <mat-option value="{{grade.id}}" *ngFor="let grade of grades | async">{{ grade.name }}</mat-option>
+            <!-- <mat-option value="any">grade</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Birth Date Required</mat-error>
+        </mat-form-field>
+      </div><!-- -->
+
+
+    </div> <!-- End Form Container -->
+  </form>
+  <!-- End Of Form -->
+</div>

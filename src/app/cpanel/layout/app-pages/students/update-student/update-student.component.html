@@ -1,0 +1,81 @@
+<div class="students-update-cont comp-cont__margin">
+    <mat-card class="form-card-cont">
+      <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+        <mat-tab label="Students">
+          <mat-card-title class="card-title">Update Student</mat-card-title>
+          <!--  -->
+
+          <form name="form" [formGroup]="form" (submit)="submit()">
+              <div class="form-cont">
+                <!-- Form Container -->
+                <div class="flex-row__with-img">
+
+                  <div class="flex-row__with-img__col">
+                    <!-- First Name -->
+                    <mat-form-field appearance="outline">
+                      <mat-label>First Name</mat-label>
+                      <input matInput placeholder="First Name" formControlName="firstName">
+                      <mat-icon matSuffix>account_circle</mat-icon>
+                      <mat-error>First Name Required</mat-error>
+                    </mat-form-field>
+
+                    <!-- Last Name -->
+                    <mat-form-field appearance="outline">
+                      <mat-label>Last Name</mat-label>
+                      <input matInput placeholder="Last Name" formControlName="lastName">
+                      <mat-icon matSuffix>account_circle</mat-icon>
+                      <mat-error>Last Name Required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+                      <mat-error>Address is Required</mat-error>
+                    </mat-form-field>
+                    <!-- <button mat-raised-button color="primary">Upload</button> -->
+                  </div><!-- -->
+                  <div class="flex-row__with-img__upload-cont">
+                    <button type="button" class="flex-row__with-img__btn" mat-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+                    <input hidden type="file" (change)="uploadImg($event)" #fileInput>
+                    <img class="flex-row__with-img__img" *ngIf="imgObj" src="{{imgObj.url}}" alt="user-image">
+                    <!-- <img class="user-img" src="http://127.0.0.1:8000/images/php3D2A.tmp.jpg" alt="user-image"> -->
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <!-- <mat-form-field appearance="outline">
+                  <textarea matInput placeholder="Address" formControlName="address" required></textarea>
+                  <mat-error>Address is Required</mat-error>
+                </mat-form-field> -->
+
+                <!-- Gender -->
+                <div class="flex-row flex-row__col-2">
+                  <!-- <mat-form-field appearance="outline">
+                    <mat-label>Select Gender</mat-label>
+                    <mat-select [value]="gender" formControlName="gender">
+                      <mat-option value="male">Male</mat-option>
+                      <mat-option value="female">Female</mat-option>
+                    </mat-select>
+                    <mat-error>Gender is Required</mat-error>
+                  </mat-form-field> -->
+
+                  <!-- Birth Date -->
+                  <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="picker" placeholder="Birth Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>Birth Date Required</mat-error>
+                  </mat-form-field>
+
+                </div>
+                <div class="btn-form-submit">
+                    <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+                </div>
+              </div> <!-- End Form Container -->
+            </form>
+
+          <!--  -->
+        </mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab>
+      </mat-tab-group>
+
+    </mat-card>
+  </div>

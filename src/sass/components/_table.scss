@@ -1,0 +1,33 @@
+.cust-table-cont {
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),
+              0 1px 1px 0 rgba(0,0,0,.14),
+              0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.dataTable {
+  width: 100%;
+  z-index: 30;
+  width: 100%;
+
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  .avatar-img {
+    width: 4rem;
+    border-radius: 50%;
+  }
+}
+
+.app-table {
+  &__btn {
+    padding: 10rem;
+  }
+
+  // &__min-h {
+  //   max-height: 14rem;
+  // }
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}

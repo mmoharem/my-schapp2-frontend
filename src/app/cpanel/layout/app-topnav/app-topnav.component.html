@@ -1,0 +1,16 @@
+<div class="app-topnav-cont">
+  <nav class="app-topnav">
+    <ul class="">
+      <li class="nav-item active">
+        <a routerLink="/" class="nav-link">Home</a>
+      </li>
+    </ul>
+    <div class="btn">
+        <button color="primary" (click)="checkToken()" mat-raised-button >Token</button>
+      </div>
+    <div class="navbar-nav">
+      <a routerLink="/login" class="nav-link" (click)="isLoggedIn()" *ngIf="!loggedIn">Login</a>
+      <a routerLink="/" class="nav-link" (click)="logout()" *ngIf="loggedIn">Logout</a>
+    </div>
+  </nav>
+</div>

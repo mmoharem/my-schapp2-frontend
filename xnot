@@ -1,0 +1,6 @@
+
+
+-- Redux (ngrx):
+1-
+2- npm install tassign --save
+3- npm istall --save immutable

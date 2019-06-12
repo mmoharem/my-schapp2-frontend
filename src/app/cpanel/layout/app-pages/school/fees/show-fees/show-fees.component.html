@@ -1,0 +1,67 @@
+<div class="show-fees">
+  <div class="stud-table-cont">
+
+    <table mat-table [dataSource]="dataSource" class="dataTable mat-elevation-z8" *ngIf="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="grade">
+        <th mat-header-cell *matHeaderCellDef> Grade </th>
+        <td mat-cell *matCellDef="let element"> {{element.grade.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="level">
+        <th mat-header-cell *matHeaderCellDef> Level </th>
+        <td mat-cell *matCellDef="let element"> {{element.grade.level}} </td>
+      </ng-container>
+
+      <!-- Birth Date -->
+      <ng-container matColumnDef="old_schoolFees">
+        <th mat-header-cell *matHeaderCellDef> Old Sch Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.old_schFees}} </td>
+      </ng-container>
+
+      <!-- Mobile Phone -->
+      <ng-container matColumnDef="old_bookslFees">
+        <th mat-header-cell *matHeaderCellDef> Old BK.Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.old_booksFees}} </td>
+      </ng-container>
+
+      <!-- Mobile Phone -->
+      <ng-container matColumnDef="old_totFees">
+        <th mat-header-cell *matHeaderCellDef> Old Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.old_totFees}} </td>
+      </ng-container>
+
+      <!-- Home Phone -->
+      <ng-container matColumnDef="schoolFees">
+        <th mat-header-cell *matHeaderCellDef> Sch Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.schFees}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="bookslFees">
+        <th mat-header-cell *matHeaderCellDef> BK.Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.booksFees}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="totFees">
+        <th mat-header-cell *matHeaderCellDef> Total Fees </th>
+        <td mat-cell *matCellDef="let element"> {{element.totFees}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

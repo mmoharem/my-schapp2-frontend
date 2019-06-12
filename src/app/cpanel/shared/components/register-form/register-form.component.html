@@ -1,0 +1,217 @@
+<div class="register-form-cont">
+  <!-- Form -->
+  <form name="form" [formGroup]="form" (submit)="submit()">
+    <div class="form-cont">
+      <!-- Form Container -->
+      <div class="flex-row__with-img">
+
+        <div class="flex-row__with-img__col">
+          <!-- First Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="firstName" required>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error>First Name Required</mat-error>
+          </mat-form-field>
+
+          <!-- Last Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lastName" required>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error>Last Name Required</mat-error>
+          </mat-form-field>
+
+          <!-- Full Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Full Name" formControlName="fullName" required>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error>Full Name Required</mat-error>
+          </mat-form-field>
+
+          <!-- <button mat-raised-button color="primary">Upload</button> -->
+        </div><!-- -->
+
+        <div class="flex-row__with-img__upload-cont">
+          <button type="button" class="flex-row__with-img__btn" mat-raised-button color="primary"
+            (click)="fileInput.click()">Upload</button>
+          <!-- <mat-form-field> -->
+          <input hidden type="file" (change)="uploadImg($event)" #fileInput required>
+          <!-- <mat-error>Gender is Required</mat-error> -->
+          <!-- </mat-form-field> -->
+          <img class="flex-row__with-img__img" *ngIf="imgObj" src="{{imgObj.url}}" alt="user-image">
+          <!-- <img class="user-img" src="http://127.0.0.1:8000/images/php3D2A.tmp.jpg" alt="user-image"> -->
+        </div>
+      </div>
+
+      <!-- Address -->
+      <mat-form-field appearance="outline">
+        <textarea matInput placeholder="Address" formControlName="address" required></textarea>
+        <mat-icon fontSet="fa" fontIcon="fa-map-marker-alt"></mat-icon>
+        <mat-error>Address is Required</mat-error>
+      </mat-form-field>
+
+      <div class="flex-row flex-row__col-3">
+        <!-- Gender -->
+        <mat-form-field appearance="outline">
+          <mat-label>Select Gender</mat-label>
+          <mat-select formControlName="gender" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error>Gender is Required</mat-error>
+        </mat-form-field>
+
+        <!-- Nationality -->
+        <mat-form-field appearance="outline">
+          <mat-label>Nationality</mat-label>
+          <input matInput placeholder="Nationality" formControlName="nationality" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Nationality Required</mat-error>
+        </mat-form-field>
+
+        <!-- Birth Date -->
+        <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="birthDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Birth Date Required</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>Email Required</mat-error>
+      </mat-form-field>
+
+      <div class="flex-row flex-row__col-2">
+        <!-- Phone Number -->
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+          <mat-icon matSuffix>local_phone</mat-icon>
+          <mat-error>Phone Number Required</mat-error>
+        </mat-form-field>
+
+        <!-- Mobile Number -->
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Mobile Phone" formControlName="mobilePhone" required>
+          <mat-icon matSuffix>phone_iphone</mat-icon>
+          <mat-error>Mobile Number Required</mat-error>
+        </mat-form-field>
+      </div><!-- -->
+
+      <!-- Medical State -->
+      <mat-form-field appearance="outline">
+        <textarea matInput placeholder="Medical State" formControlName="medicalState"></textarea>
+        <mat-error>Medical State Required</mat-error>
+      </mat-form-field>
+
+      <!-- Notes -->
+      <mat-form-field appearance="outline">
+        <mat-label>Add Notes</mat-label>
+        <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+      </mat-form-field>
+
+      <!------------------------------- Student Group ------------------------------>
+      <div *ngIf="dataObjInp.dataType==='student'" class="flex-row flex-row__col-2">
+        <!-- Grade -->
+        <mat-form-field appearance="outline">
+          <mat-label>Select Grade</mat-label>
+          <mat-select formControlName="grade_id">
+            <mat-option value="{{grade.id}}" *ngFor="let grade of grades | async">{{ grade.name }}</mat-option>
+          </mat-select>
+          <mat-error>Grade is Required</mat-error>
+        </mat-form-field>
+
+        <!-- Gardian -->
+        <mat-form-field appearance="outline">
+          <mat-label>Select Gardian</mat-label>
+          <!-- <mat-select [(value)]="selected" formControlName="gardian" required> -->
+          <mat-select formControlName="gardian" required>
+            <mat-option value="1">Both</mat-option>
+            <mat-option value="2">Father</mat-option>
+            <mat-option value="3">Mother</mat-option>
+          </mat-select>
+          <mat-error>Gardian is Required</mat-error>
+        </mat-form-field>
+      </div><!-- End Of Student Group -->
+
+      <!------------------------------- Employee Group ------------------------------>
+      <div *ngIf="dataObjInp.dataType==='employee'">
+
+        <div class="flex-row flex-row__col-3">
+          <!-- Profession -->
+          <mat-form-field appearance="outline">
+            <mat-label>Profession</mat-label>
+            <mat-select formControlName="profession" required>
+              <mat-option value="acountant">Acountant</mat-option>
+              <mat-option value="teacher">Teacher</mat-option>
+              <mat-option value="manger">Manger</mat-option>
+              <mat-option value="worker">Worker</mat-option>
+              <mat-option value="nany">Nany</mat-option>
+              <mat-option value="doorman">Doorman</mat-option>
+            </mat-select>
+            <mat-error>Profession is Required</mat-error>
+          </mat-form-field>
+          <!-- Insurance State -->
+          <mat-form-field appearance="outline">
+            <mat-label>Insurance State</mat-label>
+            <mat-select formControlName="insurance_state" required>
+              <mat-option value=1>By-Insurance</mat-option>
+              <mat-option value=2>By-Sallary</mat-option>
+            </mat-select>
+            <mat-error>Insurance State is Required</mat-error>
+          </mat-form-field>
+
+          <!-- Regestration Date -->
+          <mat-form-field appearance="outline">
+            <mat-label>Regestration Date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Regestration Date" formControlName="reg_date"
+              required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Regestration Date Required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="flex-row flex-row__col-2">
+          <!-- Speciality -->
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Speciality" formControlName="speciality" required>
+            <mat-icon matSuffix>local_phone</mat-icon>
+            <mat-error>Speciality Required</mat-error>
+          </mat-form-field>
+          <!-- Experience -->
+          <mat-form-field appearance="outline">
+            <mat-label>Experience</mat-label>
+            <textarea matInput placeholder="Experience" formControlName="experience"></textarea>
+            <mat-error>Experience Required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!------------- End Of Employee Group ----------------------------------->
+
+      <div class="flex-row flex-row__col-2">
+        <!-- Password -->
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Password" formControlName="password" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Password Required</mat-error>
+        </mat-form-field>
+
+        <!-- Confirm Password -->
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Confirm Password" formControlName="password_confirmation" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Password Conifirmation Required</mat-error>
+        </mat-form-field>
+      </div><!-- -->
+      <div class="btn-form-submit">
+        <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+      </div>
+    </div> <!-- End Form Container -->
+  </form>
+</div>

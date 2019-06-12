@@ -1,0 +1,27 @@
+.info-1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.cust-form {
+  margin-top: 3rem;
+
+  &__label {
+    color: rgb(12, 80, 170);
+    font-weight: 600;
+
+    &--danger {
+      color: red;
+      font-weight: 600;
+    }
+  }
+
+  &__input {
+
+  }
+
+  &__icon {
+
+  }
+}

@@ -1,0 +1,52 @@
+<!-- <h1 class="text-center">Please sign in</h1>
+
+<form [formGroup]="form" class="form mt-3" (submit)="submit()">
+
+  <div *ngIf="error" class="alert alert-danger" [hidden]="!error">{{ error }}</div>
+
+  <div class="form-group">
+    <input type="email" formControlName="email" class="form-control" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <input type="password" formControlName="password" class="form-control" placeholder="Password">
+  </div>
+
+  <div class="row">
+    <button class="btn btn-lg btn-primary btn-block col-5">Login</button>
+    <button class="btn btn-lg btn-primary btn-block col-5">
+      <a href="/signup">Sign Up</a>
+    </button>
+  </div>
+</form> -->
+
+<div class="login-cont">
+  <h2 class="login-text">Please sign in</h2>
+
+  <!-- Form -->
+  <form name="form" [formGroup]="form" (submit)="submit()" *ngIf="form">
+    <div class="form-cont">
+      <!-- Form Container -->
+      <!-- <div class="flex-row flex-row__col-2"> -->
+
+        <!-- Email -->
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Email Required</mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline">
+          <mat-label>User Pasword</mat-label>
+          <input matInput placeholder="User Password" formControlName="password" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Password Name Required</mat-error>
+        </mat-form-field>
+      <!-- </div> -->
+      <div class="btn-form-submit">
+        <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+      </div>
+    </div> <!-- End Form Container -->
+  </form>
+</div>

@@ -1,0 +1,26 @@
+@mixin clearFix {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+$atSmall: 53rem;
+@mixin atSmall {
+    @media only screen and (min-width: $atSmall) {
+        @content;
+    }
+}
+
+$atMedium: 80rem;
+@mixin atMedium {
+    @media only screen and (min-width: 800px) {
+        @content;
+    }
+}
+
+$atLarge: 120rem;
+@mixin atLarge {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}

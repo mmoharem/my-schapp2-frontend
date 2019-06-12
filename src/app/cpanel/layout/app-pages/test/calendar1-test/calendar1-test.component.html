@@ -1,0 +1,13 @@
+<div class="calendar--cont">
+  <!-- <div class="calendar--header"></div> -->
+  <div class="calendar--wrapper">
+    <div class="calendar--comp">
+      <full-calendar class="calendar" #calendar
+        defaultView="dayGridMonth"
+        [plugins]="calendarPlugins"
+        [weekends]="false"
+        [events]="events"
+      ></full-calendar>
+    </div>
+  </div>
+</div>

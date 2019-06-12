@@ -1,0 +1,102 @@
+.icon {
+  color: gainsboro;
+  // border: 1px solid red;
+  // font-weight: 100;
+}
+
+.pages-links {
+
+  &__cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding-top: 45px;
+    color: white;
+    // font-family: 'Cantarell';
+    // font-family:'Helvetica Neue',Arial,sans-serif;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+    // color: white;
+    // font-size: 18px;
+    list-style: none;
+
+    li {
+      display: block;
+      width: 20rem;
+      margin: 1rem 2.5rem;
+    }
+  }
+
+  &__link{
+    display: flex;
+    // align-content: center;
+    // justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+
+    // height: 4rem;
+    widows: 100%;
+    text-decoration: none;
+    color: rgb(226, 225, 225);
+    font-size: 2rem;
+
+    &--icon {
+      display: block;
+      font-size: 1.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      min-width: 1.8rem;
+      min-height: 1.8rem;
+      line-height: 1.8rem;
+
+      &__child {
+        font-size: 1.5rem;
+        color: white;
+      }
+    }
+
+    &--text {
+      display: block;
+      margin-left: 2rem;
+      font-size: 1.6rem;
+      font-weight: 10;
+
+      &__child {
+        font-size: 1.5rem;
+      }
+    }
+
+    &--child {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .collapsable-arrow2 {
+      margin-left: auto;
+      width: 1.3rem;
+      height: 1.3rem;
+      fill: white;
+      color: white;
+    }
+    .collapsable-arrow {
+      margin-left: auto;
+    }
+  }
+}
+
+.collapsed-menu {
+  opacity: 0;
+  display: none;
+}
+

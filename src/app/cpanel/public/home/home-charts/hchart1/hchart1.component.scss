@@ -1,0 +1,60 @@
+// @import '../../../../../../sass/base/variables';
+
+
+$app-content-width: calc(100vw - 26rem);
+
+$app-pages-minHeight: calc(100vh - 8rem - 17vh - 0.6rem - 6rem);
+
+
+.hchart1-cont {
+  position: relative;
+  width: $app-content-width;
+  height: $app-pages-minHeight;
+  // width: 80vw;
+  // height: 80vh;
+  // width: calc(100vw - 26rem);
+  // height: calc(100vh - 8rem);
+}
+
+.num-chart-comp {
+  // position: relative;
+  margin: 6rem auto;
+  // padding-left: 10px;
+  width: 95%;
+  // height: 34%;
+  height: 20rem;
+  // background-color: rebeccapurple;
+}
+
+ngx-charts-number-card {
+  // width: 20%;
+  // height: 10%;
+  .cell {
+    .trimmed-label {
+      font-size: 40px;
+      pointer-events: none;
+      overflow: hidden;
+      text-align: left;
+      line-height: 1em;
+
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .value-text {
+      pointer-events: none;
+    }
+  }
+
+  .number-card.clickable .cell {
+    .card, .card-band {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.comp-cont__margin {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.form-card-cont {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > * {
+    width: 100%;
+  }
+}
+
+.flex-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__col-2 > * {
+    // align-self: stretch;
+    width: 48%;
+  }
+
+  &__col-2-btn > * {
+    // align-self: stretch;
+    &:not(:last-child) {
+      width: 42%;
+    }
+  }
+
+  &__col-3 > * {
+    // align-self: stretch;
+    width: 32%;
+  }
+
+  &__col-4 > * {
+    // align-self: stretch;
+    width: 23%;
+  }
+  &__col-4-btn > * {
+    // align-self: stretch;
+    &:not(:last-child) {
+      width: 23%;
+    }
+  }
+}
+.btn-form-submit-x4 {
+  // display: block;
+  height: 4rem;
+  margin-right: 6rem;
+}
+
+.card-title {
+  padding-top: 5rem;
+}
+
+.btn-form-submit {
+  margin: 2rem;
+  max-width: 10rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+}
+
+// Form Flex Row With Image
+
+.flex-row__with-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__col {
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 84%;
+    // height: 25rem;
+
+    & > * {
+      &:not(:last-child) {
+        width: 47%;
+      }
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  &__upload-cont {
+    position: relative;
+    content: "";
+    // flex: 1 0;
+    width: 14%;
+    height: 21rem;
+    border: 0.5px solid #e0e0e0;
+    border-radius: .5rem;
+  }
+
+  &__btn {
+    position: absolute;
+    top: -5rem;
+    right: 0;
+  }
+
+  &__img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}

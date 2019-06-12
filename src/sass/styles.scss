@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+$layout-width: 100px;
+
+$top-nav-height: 80rem;
+@import './base/variables';
+@import './base/global';
+@import './components/form';
+@import './components/table';
+@import './components/mat-tabs';
+@import './components/calendar';
+// @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+// @import "~angular-calendar/css/angular-calendar.css";
+
+// @import '~@fullcalendar/timegrid/main.min.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//Toastr Notifications
+@import '~ngx-toastr/toastr.css';
+@import './options/print';

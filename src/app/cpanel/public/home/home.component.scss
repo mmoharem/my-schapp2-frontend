@@ -1,0 +1,26 @@
+.home-cont {
+  position: relative;
+  width: 100%;
+}
+
+.home {
+
+  &--header {
+    height: 17vh;
+    width: 100vw;
+    background-image: linear-gradient(to left,#2bc0ec,#1b81d7);
+    border-bottom: 0.6rem solid #fac863;
+
+    &__title {
+      padding: 3rem 4rem;
+
+      &--text {
+        color: white;
+        font-size: 2.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+
+}

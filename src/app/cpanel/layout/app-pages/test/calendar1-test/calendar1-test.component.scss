@@ -1,0 +1,19 @@
+
+.calendar {
+  &--cont {
+    position: relative;
+    background-color: white;
+  }
+
+  // &--header {
+  //   height: 20vh;
+  //   width: 100vw;
+  //   background-image: linear-gradient(to left,#2bc0ec,#1b81d7);
+  //   border-bottom: 0.6rem solid #fac863;
+  // }
+
+  &--wrapper {
+    width: 70vw;
+    margin: 4rem auto;
+  }
+}

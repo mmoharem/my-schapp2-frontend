@@ -1,0 +1,54 @@
+<mat-card-title class="card-title">Add new Fees</mat-card-title>
+<!-- Form -->
+<form name="form" [formGroup]="form" (submit)="submit()">
+  <div class="form-cont">
+    <!-- Form Container -->
+    <div class="flex-row flex-row__col-2">
+      <mat-form-field appearance="outline" *ngIf="grades">
+        <mat-label>Select Grade</mat-label>
+        <mat-select formControlName="grade" required>
+          <mat-option value="{{grade.id}}" *ngFor="let grade of grades">{{ grade.name }}</mat-option>
+          <!-- <mat-option value="any">grade</mat-option> -->
+        </mat-select>
+        <mat-error>Grade is Required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Level">
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>Level Required</mat-error>
+      </mat-form-field>
+    </div><!-- -->
+    <div class="flex-row flex-row__col-2">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="old School Fees" formControlName="old_schFees" required>
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>old School Fees Required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="School Fees" formControlName="schFees">
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <!-- <mat-error>School Fees</mat-error> -->
+      </mat-form-field>
+    </div><!-- -->
+    <div class="flex-row flex-row__col-2">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="old Books Fees" formControlName="old_booksFees" required>
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-error>Old Books Fees Required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Books Fees" formControlName="booksFees" >
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <!-- <mat-error>Books Fees Required</mat-error> -->
+      </mat-form-field>
+    </div><!-- -->
+
+    <div class="btn-form-submit">
+      <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+    </div>
+  </div> <!-- End Form Container -->
+</form>
+<!-- End Of Form -->
