@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { select } from "@angular-redux/store";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/cpanel/shared/services/http.service';
-import * as moment from 'moment/moment';
-import { HttpClient } from '@angular/common/http';
 import { StudentsService } from 'src/app/cpanel/shared/services/students.service';
-import { studentData } from 'src/app/cpanel/shared/interfaces/app-interface';
-
+import { paymentEl, userStudData } from 'src/app/cpanel/shared/interfaces/app-interface';
+import { Observable } from 'rxjs';
+import { IAppState } from 'src/app/cpanel/shared/store/store';
 
 @Component({
   selector: 'app-payments',
@@ -14,57 +14,64 @@ import { studentData } from 'src/app/cpanel/shared/interfaces/app-interface';
 })
 export class PaymentsComponent implements OnInit {
 
-  // private form: FormGroup;
-  // private grades;
-  // private tableColumns: string[] = ['id', 'firstName', 'lastName', 'birthDate', 'grade', 'image', 'btn'];
-  // private dataS: studentData[];
+  @select(t => t.userBtn.user) userObs: Observable<userStudData>;
+  dataSource: paymentEl[];
+  tableColumns: string[] = ['id', 'type', 'amount', 'date'];
+  showStudent: FormGroup;
+  addPayment: FormGroup;
+  student: userStudData;
 
-  // constructor(private fB: FormBuilder,
-  //             private httpServ: HttpService,
-  //             private http: HttpClient,
-  //             private studServ: StudentsService) { }
+  constructor(private fB: FormBuilder,
+              private httpServ: HttpService,
+              private studServ: StudentsService) { }
 
   ngOnInit() {
-  //   this.initForm();
+    this.initForm()
+    this.userObs.subscribe(user => {
+      console.log(user)
+      this.student = user;
+      this.getPayments(user.student.id);
+    });
   }
 
-  // private initForm() {
-  //   this.form = this.fB.group({
-  //     firstName: [''],
-  //     lastName: '',
-  //     grade: '',
-  //     birthDate: ''
-  //   });
-  // }
+  private initForm() {
+    this.showStudent = this.fB.group({
+    })
+    this.addPayment = this.fB.group({
+      type: ['', Validators.required],
+      amount: ['', Validators.required],
+      student_id: ['']
+    })
+  }
+
+  private getPayments(id) {
+    this.httpServ.getRequest(`students/transactions/${id}`)
+      .subscribe(
+        (results: Response) => {
+          this.dataSource = results['data']['data'];
+          console.log(this.dataSource);
+        },
+        error => console.log(error)
+      )
+    ;
+    console.log(id);
+  }
 
   // private submit() {
-  //   const data = this.form.getRawValue();
-  //   const date = this.form.value['birthDate'];
-  //   let dateFormated;
+  submit() {
 
-  //   if(date) {
-  //     dateFormated = moment(date).format('YYYY-MM-DD');
-  //     data.birthDate = dateFormated;
-  //   }
+    const data = this.addPayment.getRawValue();
 
-  //   // this.httpServ.postRequest('search', data)
-  //   this.http.post('http://127.0.0.1:8000/search', data)
-  //     .subscribe(
-  //       (results: studentData[]) => this.dataS = results['data'],
-  //       // results => {
-  //       //   let data: any = results['data'];
-  //       //   data.forEach(dat => {
-  //       //     console.log(dat.grade);
-  //       //   })
-  //         // console.log(data)
-  //       // },
-  //       error => console.log(error)
-  //     )
-  //   ;
-  // }
+    data.student_id = this.student.id;
 
-  // showStud(student: studentData) {
-  //   this.studServ.showStudent(student);
-  // }
+    this.httpServ.postRequest('students/transactions', data)
+      .subscribe(
+        results => console.log(results),
+        error => console.log(error)
+      )
+    ;
+
+    this.getPayments(this.student.id);
+  }
 
 }

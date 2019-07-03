@@ -90,7 +90,7 @@
         </td>
       </ng-container>
 
-      <!-- Show Btn -->
+      <!-- Attend Btn -->
       <ng-container matColumnDef="attend" *ngIf="tableColInput.includes('attend')">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
@@ -124,6 +124,15 @@
         <td mat-cell *matCellDef="let element">
           <!-- <mat-icon>more_vert</mat-icon> -->
           <!-- <button class="app-table__btn" color="warn" mat-raised-button (click)="showStud(element)" [routerLink]="['/students/testupdate', element.firstName]">Del</button> -->
+        </td>
+      </ng-container>
+
+      <!-- Payment Btn -->
+      <ng-container matColumnDef="payments" *ngIf="tableColInput.includes('payments')">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-icon>more_vert</mat-icon> -->
+          <button class="app-table__btn" color="warn" mat-raised-button (click)="payments(element)" [routerLink]="['/students/testupdate', element.firstName]">Payment</button>
         </td>
       </ng-container>
 

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FindStudComponent {
 
   tableColumns: string[] = [
-    'id', 'name', 'address', 'gender', 'birthDate', 'grade', 'fees', 'payment', 'image', 'attend', 'show', 'edite', 'delete'
+    'id', 'name', 'address', 'gender', 'birthDate', 'grade', 'fees', 'payment', 'image', 'attend', 'payments', 'edite', 'delete'
   ];
   tableObj = {
     tableColumns: this.tableColumns,

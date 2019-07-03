@@ -3,6 +3,9 @@ import { userStudData } from '../../interfaces/app-interface';
 import { CompHttpService, compResObj } from '../comp-http.service';
 import { Router } from '@angular/router';
 import { StudTableService } from './stud-table.service';
+import { NgRedux } from "@angular-redux/store";
+import { IAppState } from '../../store/store';
+import { GET_USER_BTN_OBJ } from './table-btn.store';
 
 // export interface tableCol {
 //   id: 'id', name: 'name', gender: 'gender', birthDate: 'birthDate', grade: 'grade',
@@ -31,7 +34,8 @@ export class StudTableComponent implements OnInit, OnChanges {
 
   constructor(private compHttp: CompHttpService,
               private stdTableSer: StudTableService,
-              private router: Router) { }
+              private router: Router,
+              private ngRedux: NgRedux<IAppState>) { }
 
   ngOnInit() {
     this.compHttp.emittReq.subscribe(this);
@@ -89,6 +93,11 @@ export class StudTableComponent implements OnInit, OnChanges {
       this.router.navigate(['/students/studattendance', user.student.id]);
       this.stdTableSer.onUpdate(user);
     };
+  }
+
+  payments(user: userStudData) {
+    this.ngRedux.dispatch({type: GET_USER_BTN_OBJ, user: user});
+    this.router.navigate(['/students/payments'])
   }
 
 }

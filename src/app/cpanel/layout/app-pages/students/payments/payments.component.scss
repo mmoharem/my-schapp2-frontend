@@ -1,1 +1,67 @@
 
+.info-1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.cust-form {
+  margin-top: 3rem;
+
+  &__label {
+    color: rgb(12, 80, 170);
+    font-weight: 600;
+
+    &--danger {
+      color: red;
+      font-weight: 600;
+    }
+  }
+
+  &__input {
+
+  }
+
+  &__icon {
+
+  }
+
+}
+
+.form-with-img {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.payment-row {
+  width: 50vw;
+}
+.dd {
+  width: 15rem;
+    height: 16rem;
+    border: 2px solid black;
+}
+
+.payment-img {
+  position: relative;
+  width: 15rem;
+  height: 16rem;
+  // margin-right: auto;
+  margin-left: auto;
+  border: 1.2px solid #d8d7d7;
+  border-radius: 0.5rem;
+  margin-bottom: auto;
+}
+
+.user-img {
+  position: absolute;
+  /* max-width: 190%; */
+  /* height: auto; */
+  /* width: 120%; */
+  padding-right: -6rem;
+  /* display: block; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

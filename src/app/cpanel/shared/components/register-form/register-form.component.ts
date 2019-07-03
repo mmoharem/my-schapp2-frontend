@@ -56,13 +56,13 @@ export class RegisterFormComponent implements OnInit {
       mobilePhone: ['', Validators.required],
       medicalState: [''],
       notes: [''],
-      password: ['', Validators.required],
-      password_confirmation: ['', Validators.required],
+      password: ['pasword123'],
+      password_confirmation: ['pasword123'],
     };
 
     if(this.dataObjInp.dataType === 'student') {
       group['grade_id'] = ['', Validators.required];
-      group['gardian'] = ['1', Validators.required];
+      group['gardian'] = ['both', Validators.required];
     };
 
     if(this.dataObjInp.dataType === 'employee') {
@@ -97,9 +97,12 @@ export class RegisterFormComponent implements OnInit {
       this.toastr.error('Error: User Image Require')
     }
 
-    // console.log(data);
+    console.log(data);
 
     this.compHttp.postRequest(this.dataObjInp.url, data);
+
+    // if(this.dataObjInp.dataType === 'student') {
+    // }
   }
 
 

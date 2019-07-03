@@ -37,15 +37,11 @@ import { FeesComponent } from './layout/app-pages/school/fees/fees.component';
 import { AddFeesComponent } from './layout/app-pages/school/fees/add-fees/add-fees.component';
 import { ShowFeesComponent } from './layout/app-pages/school/fees/show-fees/show-fees.component';
 import { PaymentsComponent } from './layout/app-pages/students/payments/payments.component';
-import { AddPaymentComponent } from './layout/app-pages/students/payments/stud-payment/add-payment/add-payment.component';
 import { AddStudentComponent } from './layout/app-pages/students/stud-main/add-student/add-student.component';
 import { UpdateStudentComponent } from './layout/app-pages/students/update-student/update-student.component';
 import { PdfPrintComponent } from './pdf-print/pdf-print.component';
 import { PrintStudentsAllComponent } from './pdf-print/print-students-all/print-students-all.component';
 import { StudMainComponent } from './layout/app-pages/students/stud-main/stud-main.component';
-import { PaymMainComponent } from './layout/app-pages/students/payments/paym-main/paym-main.component';
-import { AllPaymentsComponent } from './layout/app-pages/students/payments/all-payments/all-payments.component';
-import { StudPaymentComponent } from './layout/app-pages/students/payments/stud-payment/stud-payment.component';
 import { FindStudComponent } from './layout/app-pages/students/stud-main/find-stud/find-stud.component';
 import { ComponentsModule } from './shared/components/components.module';
 import { TestUpdateComponent } from './layout/app-pages/students/test-update/test-update.component';
@@ -65,6 +61,8 @@ import { Calendar2TestComponent } from './layout/app-pages/test/calendar2-test/c
 import { StudAttendComponent } from './layout/app-pages/students/stud-attend/stud-attend.component';
 import { HomeChartsComponent } from './public/home/home-charts/home-charts.component';
 import { Hchart1Component } from './public/home/home-charts/hchart1/hchart1.component';
+import { ParentsComponent } from './layout/app-pages/parents/parents.component';
+import { AddParentsComponent } from './layout/app-pages/parents/add-parents/add-parents.component';
 // import { PaginationModule } from './shared/components/pagination/pagination.module';
 // import { FindStudentsComponent } from './shared/components/find-students/find-students.component';
 // import { StudTableComponent } from './shared/components/stud-table/stud-table.component';
@@ -100,8 +98,6 @@ import { Hchart1Component } from './public/home/home-charts/hchart1/hchart1.comp
 
     PaymentsComponent,
 
-    AddPaymentComponent,
-
     AddStudentComponent,
 
     UpdateStudentComponent,
@@ -114,12 +110,6 @@ import { Hchart1Component } from './public/home/home-charts/hchart1/hchart1.comp
     PrintStudentsAllComponent,
 
     StudMainComponent,
-
-    PaymMainComponent,
-
-    AllPaymentsComponent,
-
-    StudPaymentComponent,
 
     FindStudComponent,
 
@@ -156,6 +146,10 @@ import { Hchart1Component } from './public/home/home-charts/hchart1/hchart1.comp
     HomeChartsComponent,
 
     Hchart1Component,
+
+    ParentsComponent,
+
+    AddParentsComponent,
 
     // FindStudentsComponent,
 

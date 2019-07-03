@@ -132,9 +132,9 @@
           <mat-label>Select Gardian</mat-label>
           <!-- <mat-select [(value)]="selected" formControlName="gardian" required> -->
           <mat-select formControlName="gardian" required>
-            <mat-option value="1">Both</mat-option>
-            <mat-option value="2">Father</mat-option>
-            <mat-option value="3">Mother</mat-option>
+            <mat-option value="booth">Both</mat-option>
+            <mat-option value="father">Father</mat-option>
+            <mat-option value="mother">Mother</mat-option>
           </mat-select>
           <mat-error>Gardian is Required</mat-error>
         </mat-form-field>
@@ -194,21 +194,26 @@
       </div>
       <!------------- End Of Employee Group ----------------------------------->
 
-      <div class="flex-row flex-row__col-2">
+      <!-- <div class="flex-row flex-row__col-2"> -->
         <!-- Password -->
-        <mat-form-field appearance="outline">
+        <!-- <mat-form-field appearance="outline">
           <input matInput placeholder="Password" formControlName="password" required>
           <mat-icon matSuffix>account_circle</mat-icon>
           <mat-error>Password Required</mat-error>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <!-- Confirm Password -->
-        <mat-form-field appearance="outline">
+        <!-- <mat-form-field appearance="outline">
           <input matInput placeholder="Confirm Password" formControlName="password_confirmation" required>
           <mat-icon matSuffix>account_circle</mat-icon>
           <mat-error>Password Conifirmation Required</mat-error>
-        </mat-form-field>
-      </div><!-- -->
+        </mat-form-field> -->
+      <!-- </div> -->
+      <!-- -->
+      <!-- <div class="flex-row flex-row__col-2">
+        <h2>Uplode Id</h2>
+        <h2>Other Uplode</h2>
+      </div> -->
       <div class="btn-form-submit">
         <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
       </div>
