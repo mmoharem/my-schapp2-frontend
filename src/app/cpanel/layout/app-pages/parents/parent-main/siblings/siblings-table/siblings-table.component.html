@@ -1,0 +1,9 @@
+<div class="stud-table-cont">
+  <!-- <P *ngIf="1 > (siblingsStore | async)">There is no siblings assigned to ,Student, yet.</P> -->
+  <P *ngIf="1 >= (siblingsStore | async).length">There is no siblings assigned to ,Student, yet.</P>
+  <div *ngIf="(siblingsStore | async).length > 1">
+    <mat-card-title class="margin--t__4r">All Siblings</mat-card-title>
+    <studTable [dataInput]="tableObj"></studTable>
+  </div>
+
+</div>

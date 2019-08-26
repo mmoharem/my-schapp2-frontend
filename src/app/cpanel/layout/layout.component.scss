@@ -1,13 +1,14 @@
 @import '../../../sass/base/variables';
 
 .app-layout-cont {
+  z-index: -10;
   position: relative;
   width: $layout-width;
 }
 
 .app-topnav-comp {
   position: absolute;
-  z-index: 5;
+  // z-index: 1;
   top: 0;
   right: 0;
 

@@ -1,18 +1,15 @@
-// @media print {
-//   // app-root > * { display: none; }
-//   // app-root app-pdf-print { display: block; }
-//   .dont-print{
-//     display: none !important;
-//     width: 0%;
-//   }
+@media print {
+  // app-root > * { display: none; }
+  // app-root app-pdf-print { display: block; }
+  .dont-print{
+    display: none !important;
+  }
 
-//   .print{
-//     // display: block !important;
-//     width: 95vw;
-//     margin: 4rem auto;
-//   }
+  .print{
+    display: block !important;
+  }
 
 //   .mat-elevation-z8 {
 //     box-shadow: none;
 //   }
-// }
+}

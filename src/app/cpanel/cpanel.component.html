@@ -1,6 +1,10 @@
 
 <div class="cpanel-container">
-  <app-layout class="dont-print"></app-layout>
+  <div class="dont-print">
+      <app-layout></app-layout>
+  </div>
   <!-- <p>cpanel works</p> -->
-  <router-outlet name="print"></router-outlet>
+  <div class="print">
+      <router-outlet name="print"></router-outlet>
+  </div>
 </div>

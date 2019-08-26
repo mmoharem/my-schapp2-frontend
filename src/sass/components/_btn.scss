@@ -1,0 +1,8 @@
+$btn-orange-bkg: orange;
+
+.btn-color {
+
+  &__orange {
+    background-color: $btn-orange-bkg;
+  }
+}

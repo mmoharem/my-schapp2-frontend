@@ -24,7 +24,7 @@ export interface feesElement {
 export class ShowFeesComponent implements OnInit {
 
   // private dataSource: feesElement[];
-  dataSource: feesElement[];
+  dataSource: feesElement[] = null;
   // private displayedColumns: string[] = ['id', 'grade', 'level', 'old_schoolFees', 'old_bookslFees', 'old_totFees', 'schoolFees', 'bookslFees', 'totFees'];
   displayedColumns: string[] = ['id', 'grade', 'level', 'old_schoolFees', 'old_bookslFees', 'old_totFees', 'schoolFees', 'bookslFees', 'totFees'];
 
@@ -38,7 +38,7 @@ export class ShowFeesComponent implements OnInit {
     this.httpServ.getRequest('school/fees')
       .subscribe(
         results => {
-          this.dataSource = results['data'];
+          this.dataSource = results['data']['data'];
         },
         error => console.log(error)
       )

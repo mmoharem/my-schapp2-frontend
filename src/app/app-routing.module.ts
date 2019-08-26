@@ -33,6 +33,13 @@ import { UpdateEmployComponent } from './cpanel/layout/app-pages/employee/update
 import { FindEmployComponent } from './cpanel/layout/app-pages/employee/employee-main/find-employ/find-employ.component';
 import { FindTeachComponent } from './cpanel/layout/app-pages/teachers/teachers-main/find-teach/find-teach.component';
 import { StudAttendComponent } from './cpanel/layout/app-pages/students/stud-attend/stud-attend.component';
+import { ParentsComponent } from './cpanel/layout/app-pages/parents/parents.component';
+import { AddParentsComponent } from './cpanel/layout/app-pages/parents/parent-main/add-parents/add-parents.component';
+import { ParentMainComponent } from './cpanel/layout/app-pages/parents/parent-main/parent-main.component';
+import { ShowUpdateParentComponent } from './cpanel/layout/app-pages/parents/parent-main/show-update-parent/show-update-parent.component';
+import { SiblingsComponent } from './cpanel/layout/app-pages/parents/parent-main/siblings/siblings.component';
+import { SiblingsTableComponent } from './cpanel/layout/app-pages/parents/parent-main/siblings/siblings-table/siblings-table.component';
+import { AddSiblingComponent } from './cpanel/layout/app-pages/parents/parent-main/siblings/add-sibling/add-sibling.component';
 
 const routes: Routes = [
   {
@@ -90,6 +97,33 @@ const routes: Routes = [
         ]
       },
 
+      //Parents
+      {
+        path: '',
+        component: ParentsComponent,
+        children:
+        [
+          {
+            path: 'parents',
+            component: ParentMainComponent,
+            children: [
+              {path: 'addparents', component: AddParentsComponent},
+              {path: 'show-update-parent', component: ShowUpdateParentComponent},
+
+              // Parents Siblings
+              {
+                path: 'siblings',
+                component: SiblingsComponent,
+                children: [
+                  {path: 'showallsibling', component: SiblingsTableComponent},
+                  {path: 'addsibling', component: AddSiblingComponent}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+
       //Teachers
       {
         path: 'teachers',
@@ -109,7 +143,7 @@ const routes: Routes = [
         ]
       },
 
-      //Teachers
+      //Employee
       {
         path: 'employee',
         component: EmployeeComponent,
@@ -140,9 +174,9 @@ const routes: Routes = [
     path: 'print',
     outlet: 'print',
     component: PdfPrintComponent,
-    // children: [
-    //   {path: 'printStudAll', component: PrintStudentsAllComponent}
-    // ]
+    children: [
+      {path: 'printStudAll', component: PrintStudentsAllComponent}
+    ]
   }
 ];
 

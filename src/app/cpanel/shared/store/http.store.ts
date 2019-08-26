@@ -1,38 +1,46 @@
 import { tassign } from "tassign";
 
-export const GET_REQUEST_ITEM_SUCCESS = 'GET_REQUEST_ITEM_SUCCESS';
-export const GET_REQUEST_ITEMS_SUCCESS = 'GET_REQUEST_ITEMS_SUCCESS';
+export const GET_REQUEST_SUCCESS = 'GET_REQUEST_SUCCESS';
+export const POST_REQUEST_SUCCESS = 'POST_REQUEST_SUCCESS';
+export const GET_REQUEST_ERROR = 'GET_REQUEST_ERROR';
+export const POST_REQUEST_ERROR = 'POST_REQUEST_ERROR';
 
 export interface IRequestState {
-  request: any[];
+  result: { data: object };
+  reqType: string;
+  error: object;
 }
 
 export const INIT_REQUEST_STATE: IRequestState = {
-  request : null
+  result: { data: {} },
+  reqType: null,
+  error: {}
 }
 
-function getRequestItem(state = INIT_REQUEST_STATE, action): IRequestState {
+function requestSuccess(state = INIT_REQUEST_STATE, action): IRequestState {
   return tassign(state, {
-    request: action.request
+    result: action.result,
+    reqType: null,
   });
 }
 
-function getRequestItems(state = INIT_REQUEST_STATE, action): IRequestState {
+function requestError(state = INIT_REQUEST_STATE, action): IRequestState {
   return tassign(state, {
-    request: [...action.request]
+    error: action.error,
+    reqType: 'get'
   });
 }
 
 export function requestReducer(state: IRequestState = INIT_REQUEST_STATE, action): IRequestState {
 
   switch(action.type) {
-    case GET_REQUEST_ITEM_SUCCESS:
-      return getRequestItem(state, action);
+    case GET_REQUEST_SUCCESS:
+      return requestSuccess(state, action);
   }
 
   switch(action.type) {
-    case GET_REQUEST_ITEMS_SUCCESS:
-      return getRequestItems(state, action);
+    case GET_REQUEST_ERROR:
+      return requestError(state, action);
   }
 
   return state;

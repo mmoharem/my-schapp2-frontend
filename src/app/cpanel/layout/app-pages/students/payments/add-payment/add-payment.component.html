@@ -1,0 +1,37 @@
+<div class="add-student-payment">
+  <mat-card-title class="card-title">Add Payments</mat-card-title>
+  <form name="form" [formGroup]="addPayment" (submit)="submit()">
+    <div class="form-cont">
+      <!-- Form Container -->
+      <div class="flex-row flex-row__col-4-btn padd--lr__2r">
+        <!-- Payment Type -->
+        <mat-form-field appearance="outline">
+          <mat-label>Payment Type</mat-label>
+          <mat-select formControlName="type" required>
+            <mat-option value="suspend">Suspend Payment</mat-option>
+            <mat-option value="hold">Hold Payment</mat-option>
+            <!-- <mat-option value="hold">Hold</mat-option> -->
+          </mat-select>
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Type is Required</mat-error>
+        </mat-form-field>
+
+        <!-- Payment Amount -->
+        <mat-form-field appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input matInput formControlName="amount">
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error>Amount is Required</mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="cust-form" appearance="outline">
+                      <mat-label class="cust-form__label">id</mat-label>
+                      <input class="cust-form__input" matInput formControlName="student_id" readonly>
+                      <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+                    </mat-form-field> -->
+        <button class="btn-form-submit-x4" color="primary" mat-raised-button>Add +</button>
+      </div><!-- End flex row -->
+
+    </div><!-- End form container -->
+  </form>
+</div>

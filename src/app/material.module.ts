@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [],
@@ -35,6 +36,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMomentDateModule,
     MatSortModule,
     MatMenuModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

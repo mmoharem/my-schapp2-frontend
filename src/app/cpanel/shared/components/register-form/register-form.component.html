@@ -52,9 +52,9 @@
         <mat-error>Address is Required</mat-error>
       </mat-form-field>
 
-      <div class="flex-row flex-row__col-3">
+      <div class="flex-row" [class.flex-row__col-3]="dataObjInp.dataType === '!parent'" [class.flex-row__col-2]="dataObjInp.dataType === 'parent'">
         <!-- Gender -->
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" *ngIf="dataObjInp.dataType === '!parent'">
           <mat-label>Select Gender</mat-label>
           <mat-select formControlName="gender" required>
             <mat-option value="male">Male</mat-option>
@@ -140,6 +140,67 @@
         </mat-form-field>
       </div><!-- End Of Student Group -->
 
+      <!------------------------------- Parents Group ------------------------------>
+      <div *ngIf="dataObjInp.dataType==='parent'">
+
+        <div class="flex-row flex-row__col-2">
+          <!-- Educatin Degree -->
+          <mat-form-field appearance="outline">
+            <mat-label>Educatin Degree</mat-label>
+            <input matInput placeholder="Educatin Degree" formControlName="edu_degree" required>
+            <mat-error>Educatin Degree is Required</mat-error>
+          </mat-form-field>
+
+          <!-- Job -->
+          <mat-form-field appearance="outline">
+            <mat-label>Work Type</mat-label>
+            <!-- <mat-select [(value)]="selected" formControlName="gardian" required> -->
+            <mat-select formControlName="job" required>
+              <mat-option value="public">Public</mat-option>
+              <mat-option value="private">Private</mat-option>
+              <mat-option value="self">Own Business</mat-option>
+              <mat-option value="wife">House Wife</mat-option>
+            </mat-select>
+            <mat-error>Work Type Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="flex-row flex-row__col-2">
+          <!-- Company Name -->
+          <mat-form-field appearance="outline">
+            <mat-label>Company Name</mat-label>
+            <input matInput placeholder="Company Name" formControlName="company_name" required>
+            <mat-error>Company Name Required</mat-error>
+          </mat-form-field>
+
+          <!-- Profession -->
+          <mat-form-field appearance="outline">
+            <mat-label>Profession</mat-label>
+            <mat-select formControlName="profession" >
+              <mat-option value="{{ profession }}" *ngFor="let profession of professions">{{ profession }}</mat-option>
+            </mat-select>
+            <mat-error>Profession Required</mat-error>
+          </mat-form-field>
+
+        </div>
+
+        <div class="flex-row flex-row__col-2">
+          <!-- Position -->
+          <mat-form-field appearance="outline">
+            <mat-label>Position</mat-label>
+            <input matInput placeholder="Position" formControlName="position">
+          </mat-form-field>
+
+          <!-- Work Phone -->
+          <mat-form-field appearance="outline">
+            <mat-label>Work Phone</mat-label>
+            <input matInput placeholder="Work Phone" formControlName="work_phone" required>
+            <mat-error>Work Phone Required</mat-error>
+          </mat-form-field>
+
+        </div>
+      </div><!-- End Of Parents Group -->
+
       <!------------------------------- Employee Group ------------------------------>
       <div *ngIf="dataObjInp.dataType==='employee'">
 
@@ -195,15 +256,15 @@
       <!------------- End Of Employee Group ----------------------------------->
 
       <!-- <div class="flex-row flex-row__col-2"> -->
-        <!-- Password -->
-        <!-- <mat-form-field appearance="outline">
+      <!-- Password -->
+      <!-- <mat-form-field appearance="outline">
           <input matInput placeholder="Password" formControlName="password" required>
           <mat-icon matSuffix>account_circle</mat-icon>
           <mat-error>Password Required</mat-error>
         </mat-form-field> -->
 
-        <!-- Confirm Password -->
-        <!-- <mat-form-field appearance="outline">
+      <!-- Confirm Password -->
+      <!-- <mat-form-field appearance="outline">
           <input matInput placeholder="Confirm Password" formControlName="password_confirmation" required>
           <mat-icon matSuffix>account_circle</mat-icon>
           <mat-error>Password Conifirmation Required</mat-error>
@@ -215,7 +276,7 @@
         <h2>Other Uplode</h2>
       </div> -->
       <div class="btn-form-submit">
-        <button color="primary" mat-raised-button [disabled]="!form.valid">Submit</button>
+        <button color="primary" mat-raised-button [disabled]="!form.valid || !imgObj">Submit</button>
       </div>
     </div> <!-- End Form Container -->
   </form>

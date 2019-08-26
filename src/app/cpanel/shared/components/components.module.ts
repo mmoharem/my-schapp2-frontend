@@ -10,13 +10,15 @@ import { CompHttpService } from './comp-http.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { StudTableService } from './stud-table/stud-table.service';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { ShowUpdatUserComponent } from './show-updat-user/show-updat-user.component';
 
 @NgModule({
   declarations: [
     PaginationComponent,
     StudTableComponent,
     FindStudentsComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ShowUpdatUserComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     PaginationComponent,
     StudTableComponent,
     FindStudentsComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ShowUpdatUserComponent
   ],
 })
 export class ComponentsModule { }

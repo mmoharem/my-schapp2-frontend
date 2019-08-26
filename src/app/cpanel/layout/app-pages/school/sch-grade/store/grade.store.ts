@@ -8,9 +8,7 @@ export interface IGradeState {
 }
 
 export const INIT_GRADES_STATE: IGradeState = {
-  grades: [
-    // {id: 1, name: 'first'}
-  ]
+  grades: []
 }
 
 

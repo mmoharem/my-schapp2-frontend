@@ -1,0 +1,23 @@
+.sibling-header {
+  position: relative;
+  /* height: 600px; */
+  /* background-color: beige; */
+
+  &__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 4rem;
+  }
+
+  &__content {
+    margin-top: 3rem;
+  }
+
+  // button.app-table__btn.btn-color__orange.mat-raised-button {
+  //   padding: .5rem 2rem;
+  //   /* color: #142bad; */
+  //   font-size: 1.6rem;
+  // }
+}
+

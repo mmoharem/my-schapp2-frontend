@@ -1,13 +1,16 @@
 <mat-card-title class="card-title">Add new Fees</mat-card-title>
 <!-- Form -->
 <form name="form" [formGroup]="form" (submit)="submit()">
-  <div class="form-cont">
+  <div class="form-cont" *ngIf="feesGrade">
     <!-- Form Container -->
     <div class="flex-row flex-row__col-2">
-      <mat-form-field appearance="outline" *ngIf="grades">
+      <mat-form-field appearance="outline" *ngIf="(gradesObs | async).length > 1">
         <mat-label>Select Grade</mat-label>
         <mat-select formControlName="grade" required>
-          <mat-option value="{{grade.id}}" *ngFor="let grade of grades">{{ grade.name }}</mat-option>
+          <!-- <mat-option value="{{grade.id}}" *ngFor="let grade of grades">{{ grade.name }}</mat-option> -->
+          <div *ngFor="let grade of (gradesObs | async)">
+            <mat-option value="{{grade.id}}" *ngIf="!feesGrade.includes(grade.id)">{{ grade.name }}</mat-option>
+          </div>
           <!-- <mat-option value="any">grade</mat-option> -->
         </mat-select>
         <mat-error>Grade is Required</mat-error>

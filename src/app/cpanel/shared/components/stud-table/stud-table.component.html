@@ -1,144 +1,168 @@
-<div class="stud-table-cont">
-  <!-- <div class="pay-show-stud-form"> -->
-    <table class="dataTable app-table" mat-table [dataSource]="dataSInput" *ngIf="dataSInput">
+<div class="stud-table-cont" *ngIf="tableData && dataInput.tableCol">
 
-      <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
+  <table class="dataTable app-table" mat-table [dataSource]="tableData">
 
-      <!-- Student ID. -->
-      <ng-container matColumnDef="id" *ngIf="tableColInput.includes('id')">
-        <th mat-header-cell *matHeaderCellDef> ID. </th>
-        <div *ngIf="dataType==='student'">
-          <td mat-cell *matCellDef="let element">{{element.student.id}}</td>
+    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Student ID. -->
+    <ng-container matColumnDef="id" *ngIf="dataInput.tableCol.includes('id')">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <div *ngIf="dataInput.type === 'student' || dataInput.type === 'siblings'">
+        <td mat-cell *matCellDef="let element">{{element.student.id}}</td>
+      </div>
+      <div *ngIf="dataInput.type === 'employee'">
+        <td mat-cell *matCellDef="let element">{{element.employee.id}}</td>
+      </div>
+
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name" *ngIf="dataInput.tableCol.includes('name')">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender" *ngIf="dataInput.tableCol.includes('gender')">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+    </ng-container>
+
+    <!-- LastName Column -->
+    <!-- <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.user.lastName}}</td>
+        </ng-container> -->
+
+    <!-- Birth Date -->
+    <ng-container matColumnDef="birthDate" *ngIf="dataInput.tableCol.includes('birthDate')">
+      <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+      <td mat-cell *matCellDef="let element">{{element.birthDate}}</td>
+    </ng-container>
+
+    <!-- Grade Colum -->
+    <ng-container matColumnDef="grade" *ngIf="dataInput.tableCol.includes('grade')">
+      <th mat-header-cell *matHeaderCellDef> Grade </th>
+      <td mat-cell *matCellDef="let element">{{element.student.grade.name}}</td>
+    </ng-container>
+
+    <!-- Fees Colum -->
+    <ng-container matColumnDef="fees" *ngIf="dataInput.tableCol.includes('fees')">
+      <th mat-header-cell *matHeaderCellDef> Fees </th>
+      <td mat-cell *matCellDef="let element">{{element.student.grade.fees.totFees}}</td>
+    </ng-container>
+
+    <!-- Home Phone -->
+    <ng-container matColumnDef="phoneNumber" *ngIf="dataInput.tableCol.includes('phoneNumber')">
+      <th mat-header-cell *matHeaderCellDef> Phone </th>
+      <td mat-cell *matCellDef="let element">{{element.phoneNumber}}</td>
+    </ng-container>
+
+    <!-- Mobile Phone -->
+    <ng-container matColumnDef="mobilePhone" *ngIf="dataInput.tableCol.includes('mobilePhone')">
+      <th mat-header-cell *matHeaderCellDef> Mobile </th>
+      <td mat-cell *matCellDef="let element">{{element.mobilePhone}}</td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address" *ngIf="dataInput.tableCol.includes('address')">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element">{{element.address}}</td>
+    </ng-container>
+
+    <!-- Payment -->
+    <ng-container matColumnDef="payment" *ngIf="dataInput.tableCol.includes('payment')">
+      <th mat-header-cell *matHeaderCellDef> Payments </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.payment">{{element.student.payment.tot_paid_fees}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Image -->
+    <ng-container matColumnDef="image" *ngIf="dataInput.tableCol.includes('image')">
+      <th mat-header-cell *matHeaderCellDef> User Image </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.images[0]">
+          <img class="avatar-img" [src]="'http://127.0.0.1:8000/images/'+element.images[0].filename" alt="user-image">
         </div>
-        <div *ngIf="dataType==='employee'">
-          <td mat-cell *matCellDef="let element">{{element.employee.id}}</td>
-        </div>
+      </td>
+    </ng-container>
 
-      </ng-container>
+    <!-- Attend Btn -->
+    <ng-container matColumnDef="attend" *ngIf="dataInput.tableCol.includes('attend')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button class="app-table__btn" color="primary" mat-raised-button (click)="studAttend(element)">Attend</button>
+      </td>
+    </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name" *ngIf="tableColInput.includes('name')">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
-      </ng-container>
+    <!-- Parent Btn -->
+    <ng-container matColumnDef="parent" *ngIf="dataInput.tableCol.includes('parent')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button class="app-table__btn" color="primary" mat-raised-button (click)="parents(element)">Parents</button>
+      </td>
+    </ng-container>
 
-      <!-- Gender Column -->
-      <ng-container matColumnDef="gender" *ngIf="tableColInput.includes('gender')">
-        <th mat-header-cell *matHeaderCellDef> Gender </th>
-        <td mat-cell *matCellDef="let element">{{element.gender}}</td>
-      </ng-container>
-
-      <!-- LastName Column -->
-      <!-- <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.user.lastName}}</td>
-      </ng-container> -->
-
-      <!-- Birth Date -->
-      <ng-container matColumnDef="birthDate" *ngIf="tableColInput.includes('birthDate')">
-        <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
-        <td mat-cell *matCellDef="let element">{{element.birthDate}}</td>
-      </ng-container>
-
-      <!-- Grade Colum -->
-      <ng-container matColumnDef="grade" *ngIf="tableColInput.includes('grade')">
-        <th mat-header-cell *matHeaderCellDef> Grade </th>
-        <td mat-cell *matCellDef="let element">{{element.student.grade.name}}</td>
-      </ng-container>
-
-      <!-- Fees Colum -->
-      <ng-container matColumnDef="fees" *ngIf="tableColInput.includes('fees')">
-        <th mat-header-cell *matHeaderCellDef> Fees </th>
-        <td mat-cell *matCellDef="let element">{{element.student.grade.fees.totFees}}</td>
-      </ng-container>
-
-      <!-- Home Phone -->
-      <ng-container matColumnDef="phoneNumber" *ngIf="tableColInput.includes('phoneNumber')">
-        <th mat-header-cell *matHeaderCellDef> Phone </th>
-        <td mat-cell *matCellDef="let element">{{element.phoneNumber}}</td>
-      </ng-container>
-
-      <!-- Mobile Phone -->
-      <ng-container matColumnDef="mobilePhone" *ngIf="tableColInput.includes('mobilePhone')">
-        <th mat-header-cell *matHeaderCellDef> Mobile </th>
-        <td mat-cell *matCellDef="let element">{{element.mobilePhone}}</td>
-      </ng-container>
-
-      <!-- Address Column -->
-      <ng-container matColumnDef="address" *ngIf="tableColInput.includes('address')">
-        <th mat-header-cell *matHeaderCellDef> Address </th>
-        <td mat-cell *matCellDef="let element">{{element.address}}</td>
-      </ng-container>
-
-      <!-- Payment -->
-      <ng-container matColumnDef="payment" *ngIf="tableColInput.includes('payment')">
-        <th mat-header-cell *matHeaderCellDef> Payments </th>
-        <td mat-cell *matCellDef="let element">
-          <span *ngIf="element.payment">{{element.student.payment.tot_paid_fees}}</span>
-        </td>
-      </ng-container>
-
-      <!-- Image -->
-      <ng-container matColumnDef="image" *ngIf="tableColInput.includes('image')">
-        <th mat-header-cell *matHeaderCellDef> User Image </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.images[0]">
-            <img class="avatar-img" [src]="'http://127.0.0.1:8000/images/'+element.images[0].filename"
-              alt="user-image">
+    <!-- sibling Btn -->
+    <ng-container matColumnDef="sibling" *ngIf="dataInput.tableCol.includes('sibling')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <div class="flex--col__cent">
+          <div *ngIf="0 >= element.student.parents.length">
+            <button class="app-table__btn btn-color__orange" mat-raised-button (click)="addSibling(element)">+
+              Sibling</button>
           </div>
-        </td>
-      </ng-container>
+          <div *ngIf="element.student.parents.length > 1">
+            <button class="app-table__btn" color="warn" mat-raised-button (click)="addSibling(element)">x </button>
+          </div>
+        </div>
 
-      <!-- Attend Btn -->
-      <ng-container matColumnDef="attend" *ngIf="tableColInput.includes('attend')">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <!-- <mat-icon>more_vert</mat-icon> -->
-          <button class="app-table__btn" color="primary" mat-raised-button (click)="studAttend(element)">Attend</button>
-        </td>
-      </ng-container>
+      </td>
+    </ng-container>
 
-      <!-- Show Btn -->
-      <ng-container matColumnDef="show" *ngIf="tableColInput.includes('show')">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <!-- <mat-icon>more_vert</mat-icon> -->
-          <button class="app-table__btn" color="primary" mat-raised-button (click)="showStud(element)">Show</button>
-        </td>
-      </ng-container>
+    <!-- Show Btn -->
+    <ng-container matColumnDef="show" *ngIf="dataInput.tableCol.includes('show')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon>more_vert</mat-icon> -->
+        <button class="app-table__btn" color="primary" mat-raised-button (click)="showStud(element)">Show</button>
+      </td>
+    </ng-container>
 
-      <!-- Edit Btn -->
-      <ng-container matColumnDef="edite" *ngIf="tableColInput.includes('edite')">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <!-- <mat-icon>more_vert</mat-icon> -->
-          <!-- <button class="app-table__btn" color="accent" mat-raised-button (click)="showStud(element)">Edite</button> -->
-          <button class="app-table__btn" color="accent" mat-raised-button (click)="update(element)">update</button>
-        </td>
-      </ng-container>
+    <!-- Edit Btn -->
+    <ng-container matColumnDef="edite" *ngIf="dataInput.tableCol.includes('edite')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon>more_vert</mat-icon> -->
+        <!-- <button class="app-table__btn" color="accent" mat-raised-button (click)="showStud(element)">Edite</button> -->
+        <button class="app-table__btn" color="accent" mat-raised-button (click)="update(element)">update</button>
+      </td>
+    </ng-container>
 
-      <!-- Dlete Btn -->
-      <ng-container matColumnDef="delete" *ngIf="tableColInput.includes('delete')">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <!-- <mat-icon>more_vert</mat-icon> -->
-          <!-- <button class="app-table__btn" color="warn" mat-raised-button (click)="showStud(element)" [routerLink]="['/students/testupdate', element.firstName]">Del</button> -->
-        </td>
-      </ng-container>
+    <!-- Dlete Btn -->
+    <ng-container matColumnDef="delete" *ngIf="dataInput.tableCol.includes('delete')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon>more_vert</mat-icon> -->
+        <!-- <button class="app-table__btn" color="warn" mat-raised-button (click)="showStud(element)" [routerLink]="['/students/testupdate', element.firstName]">Del</button> -->
+      </td>
+    </ng-container>
 
-      <!-- Payment Btn -->
-      <ng-container matColumnDef="payments" *ngIf="tableColInput.includes('payments')">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <!-- <mat-icon>more_vert</mat-icon> -->
-          <button class="app-table__btn" color="warn" mat-raised-button (click)="payments(element)" [routerLink]="['/students/testupdate', element.firstName]">Payment</button>
-        </td>
-      </ng-container>
+    <!-- Payment Btn -->
+    <ng-container matColumnDef="payments" *ngIf="dataInput.tableCol.includes('payments')">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon>more_vert</mat-icon> -->
+        <button class="app-table__btn" color="warn" mat-raised-button (click)="payments(element)"
+          [routerLink]="['/students/testupdate', element.firstName]">Payment</button>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="tableColInput;"></tr>
-      <tr mat-row *matRowDef="let row; columns: tableColInput;"></tr>
-    </table>
-    <pagination [data]="data"></pagination>
-  <!-- </div> -->
+    <tr mat-header-row *matHeaderRowDef="dataInput.tableCol;"></tr>
+    <tr mat-row *matRowDef="let row; columns: dataInput.tableCol;"></tr>
+  </table>
+  <pagination></pagination>
+  <!-- <pagination [data]="data"></pagination> -->
 </div>

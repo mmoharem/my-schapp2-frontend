@@ -1,3 +1,5 @@
+@import "../../../../../sass/base/variables";
+
 .sidenav-header {
 
   &__cont {
@@ -6,11 +8,42 @@
   }
 
   &__header {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    height: 25%;
+    // height: 25%;
+    height: $top-nav-height;
+
+    &--coll-btn {
+      border: none;
+
+      &__btn {
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        transform: translate(50%, -50%);
+        right: 0;
+        width: 6.5rem;
+        height: 6.5rem;
+        border-radius: 50%;
+        border: none;
+        // background-color: #1b81d7;
+        background-color: #1e2129;
+      }
+
+      &__icon {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        transform: translate(50%, -50%) rotate(135deg);
+        right: 0;
+        width: 5rem;
+        height: 5rem;
+
+      }
+    }
 
     & > * {
       margin-top: 2rem;

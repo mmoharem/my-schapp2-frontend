@@ -1,0 +1,73 @@
+
+
+// Margin
+.margin{
+
+  &--t {
+    &__1r {
+      margin-top: 1rem;
+    }
+    &__2r {
+      margin-top: 2rem;
+    }
+    &__3r {
+      margin-top: 3rem;
+    }
+    &__4r {
+      margin-top: 4rem;
+    }
+    &__5r {
+      margin-top: 5rem;
+    }
+  }
+
+  &--lr {
+
+    &__2r {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  &--tb {
+
+    &__2r {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &--all {
+
+    &__2r {
+      padding: 2rem;
+    }
+  }
+
+}
+
+.padd {
+
+  &--lr {
+
+    &__2r {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  &--tb {
+
+    &__2r {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &--all {
+
+    &__2r {
+      padding: 2rem;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="stud-find-stud-cont comp-cont__margin">
+  <!-- find student -->
+  <div class="find-student">
+    <findStudents [dataTypeInp]="tableObj.type"></findStudents>
+  </div>
+  <!-- show results -->
+  <div class="show-result">
+    <mat-card-title class="margin-4rem">Search results</mat-card-title>
+    <studTable [dataInput]="tableObj"></studTable>
+  </div>
+</div>

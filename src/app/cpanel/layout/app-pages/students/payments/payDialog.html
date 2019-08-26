@@ -1,0 +1,38 @@
+<style>
+  mat-form-field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    /* justify-content: flex-end; */
+    /* align-items: flex-end; */
+    /* width: 85%; */
+  }
+  /* input {
+
+  } */
+</style>
+
+<h1 mat-dialog-title>Confirm Payment</h1>
+<div mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+
+  <mat-form-field appearance="outline">
+    <mat-label>Bank Payed Date</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Bank Payment Date" [(ngModel)]="data.bankDate" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>Bank Payed Date Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Transaction No</mat-label>
+    <input matInput [(ngModel)]="data.bankNo" required>
+    <mat-error>Transaction No Required</mat-error>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="[data.bankDate, data.bankNo]">Confirm</button>
+  <!-- <button mat-button [mat-dialog-close]="[data.name, data.animal]" cdkFocusInitial>Ok</button> -->
+</div>

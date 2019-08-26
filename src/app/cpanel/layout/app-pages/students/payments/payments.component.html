@@ -1,152 +1,187 @@
-<div class="sch-payments-cont comp-cont__margin">
+<div class="sch-payments-cont comp-cont__margin dontPrint" *ngIf="student">
   <mat-card class="form-card-cont">
     <h2>Student Payment</h2>
 
-    <div class="add-payment__cont" *ngIf="student" (submit)="submit()">
+    <!-- SHOW STUDENT -->
+    <div class="show-student">
+      <mat-card-title class="card-title">Student</mat-card-title>
 
-      <!-- SHOW STUDENT -->
-      <div class="show-student">
-        <mat-card-title class="card-title">Student</mat-card-title>
+      <form name="form" [formGroup]="showStudent">
+        <!-- Form Container -->
+        <div class="form-cont">
+          <div class="form-with-img padd--lr__2r">
+            <div class="payment-row flex-row flex-row__col-3">
+              <mat-form-field class="cust-form" appearance="outline">
+                <mat-label class="cust-form__label">Student Name</mat-label>
+                <input class="cust-form__input" matInput
+                  value="{{student.firstName | titlecase}} {{student.lastName | titlecase}}" readonly>
+                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+              </mat-form-field>
 
-        <form name="form" [formGroup]="showStudent">
-          <!-- Form Container -->
-          <div class="form-cont">
-            <div class="form-with-img">
-                <div class="payment-row flex-row flex-row__col-3">
-                    <mat-form-field class="cust-form" appearance="outline">
-                      <mat-label class="cust-form__label">Student Name</mat-label>
-                      <input class="cust-form__input" matInput
-                        value="{{student.firstName | titlecase}} {{student.lastName | titlecase}}" readonly>
-                      <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-                    </mat-form-field>
+              <mat-form-field class="cust-form" appearance="outline">
+                <mat-label class="cust-form__label">Date Of Birth</mat-label>
+                <input class="cust-form__input" matInput value="{{student.birthDate}}" readonly>
+                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+              </mat-form-field>
 
-                    <mat-form-field class="cust-form" appearance="outline">
-                      <mat-label class="cust-form__label">Date Of Birth</mat-label>
-                      <input class="cust-form__input" matInput value="{{student.birthDate}}" readonly>
-                      <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-                    </mat-form-field>
-
-                    <mat-form-field class="cust-form" appearance="outline">
-                      <mat-label class="cust-form__label">Grade</mat-label>
-                      <input class="cust-form__input" matInput value="{{student.student.grade.name}}" readonly>
-                      <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-                    </mat-form-field>
-                  </div><!-- End flex row -->
-                  <div class="payment-img">
-                      <img class="user-img" [src]="'http://127.0.0.1:8000/images/'+student.images[0].filename"
-                      alt="user-image">
-                  </div>
+              <mat-form-field class="cust-form" appearance="outline">
+                <mat-label class="cust-form__label">Grade</mat-label>
+                <input class="cust-form__input" matInput value="{{student.student.grade.name}}" readonly>
+                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+              </mat-form-field>
+            </div><!-- End flex row -->
+            <div class="payment-img">
+              <img class="user-img" [src]="'http://127.0.0.1:8000/images/'+student.images[0].filename" alt="user-image">
             </div>
-            <div class="flex-row flex-row__col-2">
-              <mat-form-field class="cust-form" appearance="outline">
-                <mat-label class="cust-form__label--danger">Old School Fees</mat-label>
-                <input class="cust-form__input" matInput value="{{student.student.grade.fees.old_schFees}}" readonly>
-                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-              </mat-form-field>
+          </div>
+          <!-- <div class="flex-row flex-row__col-2">
+            <mat-form-field class="cust-form" appearance="outline">
+              <mat-label class="cust-form__label--danger">Old School Fees</mat-label>
+              <input class="cust-form__input" matInput value="{{student.student.grade.fees.old_schFees}}" readonly>
+              <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="cust-form" appearance="outline">
-                <mat-label class="cust-form__label--danger">Old Books Fees</mat-label>
-                <input class="cust-form__input" matInput value="{{student.student.grade.fees.old_booksFees}}" readonly>
-                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="cust-form" appearance="outline">
+              <mat-label class="cust-form__label--danger">Old Books Fees</mat-label>
+              <input class="cust-form__input" matInput value="{{student.student.grade.fees.old_booksFees}}" readonly>
+              <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+            </mat-form-field>
 
-            </div><!-- End flex row -->
-            <div class="flex-row flex-row__col-2">
+          </div> -->
+          <!-- End flex row -->
+          <!-- <div class="flex-row flex-row__col-2">
 
-              <mat-form-field class="cust-form" appearance="outline">
-                <mat-label class="cust-form__label">School Fees</mat-label>
-                <input class="cust-form__input" matInput value="{{student.student.grade.fees.schFees}}" readonly>
-                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="cust-form" appearance="outline">
+              <mat-label class="cust-form__label">School Fees</mat-label>
+              <input class="cust-form__input" matInput value="{{student.student.grade.fees.schFees}}" readonly>
+              <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="cust-form" appearance="outline">
-                <mat-label class="cust-form__label">Books Fees</mat-label>
-                <input class="cust-form__input" matInput value="{{student.student.grade.fees.booksFees}}" readonly>
-                <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-              </mat-form-field>
-            </div><!-- End flex row -->
-          </div><!-- End form container -->
-        </form>
-      </div><!-- -->
+            <mat-form-field class="cust-form" appearance="outline">
+              <mat-label class="cust-form__label">Books Fees</mat-label>
+              <input class="cust-form__input" matInput value="{{student.student.grade.fees.booksFees}}" readonly>
+              <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+          </div> -->
+          <!-- End flex row -->
+        </div>
+        <!-- End form container -->
+      </form>
+    </div><!-- -->
 
-      <!-- ADD PAYMENT -->
-      <div class="add-payments">
-        <mat-card-title class="card-title">Add Payments</mat-card-title>
-        <form name="form" [formGroup]="addPayment">
-          <div class="form-cont">
-            <!-- Form Container -->
-            <div class="flex-row flex-row__col-4-btn">
-              <!-- Payment Type -->
-              <mat-form-field appearance="outline">
-                <mat-label>Payment Type</mat-label>
-                <mat-select formControlName="type" required>
-                  <mat-option value="school_fees">School Fees</mat-option>
-                  <mat-option value="other">Other</mat-option>
-                </mat-select>
-                <mat-icon matSuffix>account_circle</mat-icon>
-                <mat-error>Type is Required</mat-error>
-              </mat-form-field>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-              <!-- Payment Amount -->
-              <mat-form-field appearance="outline">
-                <mat-label>Amount</mat-label>
-                <input matInput formControlName="amount">
-                <mat-icon matSuffix>account_circle</mat-icon>
-                <mat-error>Amount is Required</mat-error>
-              </mat-form-field>
+    <!-- Stud Pay Statment -->
+    <div>
+      <stud-pay-state></stud-pay-state>
+    </div>
 
-              <!-- <mat-form-field class="cust-form" appearance="outline">
-                      <mat-label class="cust-form__label">id</mat-label>
-                      <input class="cust-form__input" matInput formControlName="student_id" readonly>
-                      <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
-                    </mat-form-field> -->
-              <button class="btn-form-submit-x4" color="primary" mat-raised-button>Add +</button>
-            </div><!-- End flex row -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-          </div><!-- End form container -->
-        </form>
-      </div>
+    <!-- ADD PAYMENT -->
+    <div class="add-payments">
+      <student-add-payment></student-add-payment>
+      <!-- <ol>
+        <li>
+          <mat-form-field>
+            <input matInput [(ngModel)]="name" placeholder="What's your name?">
+          </mat-form-field>
+        </li>
+        <li>
+          <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+      </ol> -->
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- SHOW PAYMENT -->
+    <div class="show-payments" *ngIf="transObs">
+      <mat-card-title class="card-title">{{student.firstName}} All Payments</mat-card-title>
+      <table class="app-table" mat-table [dataSource]="transObs | async" class="dataTable mat-elevation-z8">
 
-      <!-- SHOW PAYMENT -->
-      <div class="show-payments" *ngIf="dataSource">
-        <mat-card-title class="card-title">{{student.firstName}} All Payments</mat-card-title>
-        <table class="app-table" mat-table [dataSource]="dataSource" class="dataTable mat-elevation-z8">
-
-          <!--- Note that these columns can be defined in any order.
+        <!--- Note that these columns can be defined in any order.
                     The actual rendered columns are set as a property on the row definition" -->
 
-          <!-- ID Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> ID. </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
 
-          <!-- Type Column -->
-          <ng-container matColumnDef="type">
-            <th mat-header-cell *matHeaderCellDef> Payment Type </th>
-            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-          </ng-container>
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Payment Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
 
-          <!-- Amount Column -->
-          <ng-container matColumnDef="amount">
-            <th mat-header-cell *matHeaderCellDef> Amount </th>
-            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
-          </ng-container>
+        <!-- Amount Column -->
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+        </ng-container>
 
-          <!-- Date Column -->
-          <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> Payment Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
-          </ng-container>
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
-        </table>
-      </div>
+        <!-- Hold Btn -->
+        <ng-container matColumnDef="hold">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <button *ngIf="element.type === 'suspend'" class="app-table__btn" color="primary" mat-raised-button
+              (click)="holdPayment(element)">Hold</button>
+          </td>
+        </ng-container>
 
+        <!-- Confirm Btn -->
+        <ng-container matColumnDef="confirm">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <button class="app-table__btn" color="primary" mat-raised-button
+            *ngIf="element.type === 'suspend' || element.type === 'hold'"
+              (click)="confDialog(element)">Confirm</button>
+          </td>
+        </ng-container>
+
+        <!-- Confirm Btn -->
+        <ng-container matColumnDef="print">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <button class="app-table__btn" color="primary" mat-raised-button
+            *ngIf="element.type === 'suspend' || element.type === 'hold'"
+              (click)="onPrint(element)">Pint Inv</button>
+          </td>
+        </ng-container>
+
+        <!-- Delete Btn -->
+        <ng-container matColumnDef="del">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <button class="app-table__btn" color="warn" mat-raised-button
+              (click)="delPayment(element)">Del</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+      </table>
     </div>
+    <pagination></pagination>
 
   </mat-card>
 
-
 </div>
+<!-- <div>
+  <button (click)="onPrint()">Print</button>
+</div>
+<div class="print">
+  <p>this is printed document</p>
+</div> -->

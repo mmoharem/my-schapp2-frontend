@@ -28,6 +28,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { CpanelModule } from './cpanel/cpanel.module';
 import { MaterialModule } from './material.module';
 import { PaginationModule } from './cpanel/shared/components/pagination/pagination.module';
+import { ParentServService } from './cpanel/layout/app-pages/parents/parent-serv.service';
 
 // Directives
 
@@ -56,7 +57,8 @@ import { PaginationModule } from './cpanel/shared/components/pagination/paginati
     TokenService,
     HelpersService,
     StudentsService,
-    ImgUploadService
+    ImgUploadService,
+    ParentServService
   ],
   bootstrap: [AppComponent]
 })

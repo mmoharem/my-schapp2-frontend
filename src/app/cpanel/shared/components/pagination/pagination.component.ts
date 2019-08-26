@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PaginationService } from './pagination.service';
+import { select } from "@angular-redux/store";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pagination',
@@ -8,14 +10,18 @@ import { PaginationService } from './pagination.service';
 })
 export class PaginationComponent implements OnInit {
 
-  @Input('perPage') perPage: number = 4;
-  @Input() data: Response;
+  @select(t => t.pagination) pagStoreObs:Observable<any>;
+  @Input('perPage') perPage: number = 6;
+  pagStore: object;
 
   perPageCheck: number;
 
   constructor(private paginServ: PaginationService) { }
 
   ngOnInit() {
+    this.pagStoreObs.subscribe(paginate => {
+      this.pagStore = paginate;
+    });
     this.perPageCheck = this.perPage;
   }
 
@@ -29,7 +35,7 @@ export class PaginationComponent implements OnInit {
   }
 
   paginate(state) {
-    this.paginServ.paginate(state, this.data, this.perPage);
+    this.paginServ.paginate(state, this.pagStore, this.perPage);
   }
 
 }

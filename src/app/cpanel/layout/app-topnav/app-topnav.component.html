@@ -5,9 +5,14 @@
         <a routerLink="/" class="nav-link">Home</a>
       </li>
     </ul>
-    <div class="btn">
+    <!-- <div class="btn">
         <button color="primary" (click)="checkToken()" mat-raised-button >Token</button>
-      </div>
+        <button
+        [routerLink]="[{outlets:{primary: ['path'], print: 'path'}}]"
+        type="button"
+        >router
+        </button>
+      </div> -->
     <div class="navbar-nav">
       <a routerLink="/login" class="nav-link" (click)="isLoggedIn()" *ngIf="!loggedIn">Login</a>
       <a routerLink="/" class="nav-link" (click)="logout()" *ngIf="loggedIn">Logout</a>

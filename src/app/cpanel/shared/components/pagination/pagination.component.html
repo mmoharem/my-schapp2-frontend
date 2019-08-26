@@ -1,4 +1,5 @@
-<div class="table-footer" *ngIf="data">
+
+<div class="table-footer" *ngIf="pagStoreObs">
     <div class="table-footer__per-page">
       <span (click)="onClick()">Items per page:</span>
       <!-- <mat-label>Favorite food</mat-label> -->
@@ -6,8 +7,8 @@
       <mat-form-field style="margin-left:1rem;width:6rem;display:inline-block;">
         <mat-select (change)="onCheckChanged(element)" [(value)]="perPage">
           <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-                      {{food.viewValue}}
-                    </mat-option> -->
+                        {{food.viewValue}}
+                      </mat-option> -->
           <mat-option [value]="2">2</mat-option>
           <mat-option [value]="4">4</mat-option>
           <mat-option [value]="10">10</mat-option>
@@ -18,25 +19,24 @@
       <!-- </div> -->
     </div>
     <button class="table-footer__btn btn-back" (click)="paginate('back')" color="primary" mat-mini-fab type="button"
-      disabled={{!data.prev_page_url}}>
+      disabled={{!(pagStoreObs|async).pagData.prev_page_url}}>
       <div class="table-footer__btn-icon">
         <mat-icon class="btn-back__icon-1">arrow_back_ios</mat-icon>
         <mat-icon class="btn-back__icon-2">arrow_back_ios</mat-icon>
       </div>
     </button>
     <div class="table-footer__page--count">
-      <span class="table-footer__page--current">Page {{data.current_page}}</span>
-      <span class="table-footer__page--last">of {{data.last_page}}</span>
+      <span class="table-footer__page--current">Page {{(pagStoreObs|async).pagData.current_page}}</span>
+      <span class="table-footer__page--last">of {{(pagStoreObs|async).pagData.last_page}}</span>
     </div>
     <button class="table-footer__btn btn-forward" (click)="paginate('next')" color="primary" mat-mini-fab type="button"
-      disabled={{!data.next_page_url}}>
+      disabled={{!(pagStoreObs|async).pagData.next_page_url}}>
       <div class="table-footer__btn-icon">
         <mat-icon class="btn-forward__icon-1">arrow_forward_ios</mat-icon>
         <mat-icon class="btn-forward__icon-2">arrow_forward_ios</mat-icon>
       </div>
     </button>
-
   </div>
 
-  <!-- <h1>pagination comp works</h1> -->
-  <!-- <h2>{{testService}}</h2> -->
+<!-- <h1>pagination comp works</h1> -->
+<!-- <h2>{{testService}}</h2> -->

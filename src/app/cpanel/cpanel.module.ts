@@ -30,13 +30,14 @@ import { AddGradeComponent } from './layout/app-pages/school/sch-grade/add-grade
 //
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { OnClickDirective } from './shared/directive/on-click.directive';
 import { FeesComponent } from './layout/app-pages/school/fees/fees.component';
 import { AddFeesComponent } from './layout/app-pages/school/fees/add-fees/add-fees.component';
 import { ShowFeesComponent } from './layout/app-pages/school/fees/show-fees/show-fees.component';
-import { PaymentsComponent } from './layout/app-pages/students/payments/payments.component';
+import { PaymentsComponent, PayDialogComponent } from './layout/app-pages/students/payments/payments.component';
 import { AddStudentComponent } from './layout/app-pages/students/stud-main/add-student/add-student.component';
 import { UpdateStudentComponent } from './layout/app-pages/students/update-student/update-student.component';
 import { PdfPrintComponent } from './pdf-print/pdf-print.component';
@@ -62,13 +63,28 @@ import { StudAttendComponent } from './layout/app-pages/students/stud-attend/stu
 import { HomeChartsComponent } from './public/home/home-charts/home-charts.component';
 import { Hchart1Component } from './public/home/home-charts/hchart1/hchart1.component';
 import { ParentsComponent } from './layout/app-pages/parents/parents.component';
-import { AddParentsComponent } from './layout/app-pages/parents/add-parents/add-parents.component';
+import { AddParentsComponent } from './layout/app-pages/parents/parent-main/add-parents/add-parents.component';
+import { AddPaymentComponent } from './layout/app-pages/students/payments/add-payment/add-payment.component';
+import { DialogComponent } from './layout/app-pages/students/payments/add-payment/dialog/dialog.component';
+import { BankInvoiceComponent } from './pdf-print/bank-invoice/bank-invoice.component';
+import { ParentMainComponent } from './layout/app-pages/parents/parent-main/parent-main.component';
+import { ShowUpdateParentComponent } from './layout/app-pages/parents/parent-main/show-update-parent/show-update-parent.component';
+import { SiblingsComponent } from './layout/app-pages/parents/parent-main/siblings/siblings.component';
+import { SiblingsTableComponent } from './layout/app-pages/parents/parent-main/siblings/siblings-table/siblings-table.component';
+import { AddSiblingComponent } from './layout/app-pages/parents/parent-main/siblings/add-sibling/add-sibling.component';
+import { PayStateComponent } from './layout/app-pages/students/payments/pay-state/pay-state.component';
 // import { PaginationModule } from './shared/components/pagination/pagination.module';
 // import { FindStudentsComponent } from './shared/components/find-students/find-students.component';
 // import { StudTableComponent } from './shared/components/stud-table/stud-table.component';
 
 
 @NgModule({
+
+  entryComponents: [
+    PaymentsComponent,
+    PayDialogComponent
+  ],
+
   declarations: [
     CpanelComponent,
     LayoutComponent,
@@ -151,6 +167,18 @@ import { AddParentsComponent } from './layout/app-pages/parents/add-parents/add-
 
     AddParentsComponent,
 
+    AddPaymentComponent,
+
+    DialogComponent,
+    PayDialogComponent,
+    BankInvoiceComponent,
+    ParentMainComponent,
+    ShowUpdateParentComponent,
+    SiblingsComponent,
+    SiblingsTableComponent,
+    AddSiblingComponent,
+    PayStateComponent
+
     // FindStudentsComponent,
 
     // StudTableComponent,
@@ -159,6 +187,7 @@ import { AddParentsComponent } from './layout/app-pages/parents/add-parents/add-
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
     FullCalendarModule,
     // PaginationModule,

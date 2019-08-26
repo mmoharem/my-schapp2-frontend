@@ -1,0 +1,29 @@
+.bank-inv-cont {
+  position: relative;
+  width: 100%;
+}
+
+.inv-content {
+  // display: block;
+  // padding: 2rem;
+  // margin-left: 2rem;
+
+  &__list {
+    margin-left: 5rem;
+    // margin-top: 3rem;
+    padding-top: 3rem;
+    list-style: none;
+
+    &--items {
+      display: flex;
+      padding-top: 3rem;
+      // margin-top: 3rem;
+
+      &__field {
+        width: 30rem;
+      }
+    }
+
+
+  }
+}

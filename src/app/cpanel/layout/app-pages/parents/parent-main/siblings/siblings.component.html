@@ -1,0 +1,21 @@
+<div class="sibling-main-cont">
+
+  <div class="sibling-header">
+    <div class="sibiling-header__tite">
+      <mat-card-title class="card-title">{{parentsServ.userStud.firstName | titlecase}} Siblings</mat-card-title>
+    </div>
+
+    <div class="sibling-header__btn card-title">
+      <button class="app-table__btn  sibling-header__btn--btn btn-color__orange" mat-raised-button (click)="addSibling()">Add New Sibling</button>
+    </div>
+
+    <div class="sibling-header__content">
+
+      <siblings-table></siblings-table>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+
+</div>

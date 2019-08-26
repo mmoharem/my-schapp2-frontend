@@ -1,0 +1,71 @@
+<div class="add-student-payment">
+  <mat-card-title class="card-title">Statment</mat-card-title>
+
+  <form name="form" *ngIf="(paymentObs | async)">
+    <!-- Form Container -->
+    <div class="form-cont margin--t__4r">
+      <div class="form-with-img">
+        <!-- <div class="payment-row flex-row flex-row__col-3">
+          <mat-form-field class="cust-form" appearance="outline">
+            <mat-label class="cust-form__label">Student Name</mat-label>
+            <input class="cust-form__input" matInput
+              value="{{student.firstName | titlecase}} {{student.lastName | titlecase}}" readonly>
+            <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="cust-form" appearance="outline">
+            <mat-label class="cust-form__label">Date Of Birth</mat-label>
+            <input class="cust-form__input" matInput value="{{student.birthDate}}" readonly>
+            <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="cust-form" appearance="outline">
+            <mat-label class="cust-form__label">Grade</mat-label>
+            <input class="cust-form__input" matInput value="{{student.student.grade.name}}" readonly>
+            <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+        </div> -->
+        <!-- End flex row -->
+
+      </div>
+      <div class="flex-row flex-row__col-3-26 padd--lr__2r">
+        <mat-form-field class="cust-form" appearance="outline">
+          <mat-label class="cust-form__label--danger">Fees</mat-label>
+          <input class="cust-form__input" matInput value="{{ (paymentObs | async).fees }}" readonly>
+          <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="cust-form" appearance="outline">
+          <mat-label class="cust-form__label--danger">Payments</mat-label>
+          <input class="cust-form__input" matInput value="0.00" readonly *ngIf="!(paymentObs | async).total_payment">
+          <input class="cust-form__input" matInput value="{{ (paymentObs | async).total_payment }}" readonly *ngIf="(paymentObs | async).total_payment">
+          <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="cust-form" appearance="outline">
+          <mat-label class="cust-form__label">To Paid</mat-label>
+          <input class="cust-form__input" matInput value="{{ (paymentObs | async).to_pay_fees }}" readonly>
+          <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+      </div>
+      <!-- End flex row -->
+      <!-- <div class="flex-row flex-row__col-2">
+
+        <mat-form-field class="cust-form" appearance="outline">
+          <mat-label class="cust-form__label">School Fees</mat-label>
+          <input class="cust-form__input" matInput value="{{student.student.grade.fees.schFees}}" readonly>
+          <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="cust-form" appearance="outline">
+          <mat-label class="cust-form__label">Books Fees</mat-label>
+          <input class="cust-form__input" matInput value="{{student.student.grade.fees.booksFees}}" readonly>
+          <mat-icon class="cust-form__icon" matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </div> -->
+      <!-- End flex row -->
+    </div>
+    <!-- End form container -->
+  </form>
+</div>

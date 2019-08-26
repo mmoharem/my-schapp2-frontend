@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/cpanel/shared/services/http.service';
+import { select } from "@angular-redux/store";
+import { IAppState } from 'src/app/cpanel/shared/store/store';
+import { StudentsService } from 'src/app/cpanel/shared/services/students.service';
 
 @Component({
   selector: 'sch-add-fees',
@@ -9,15 +12,19 @@ import { HttpService } from 'src/app/cpanel/shared/services/http.service';
 })
 export class AddFeesComponent implements OnInit {
 
-  grades = [];
-  // private form: FormGroup;
+  @select((store: IAppState) => store.grading.grades) gradesObs;
+
+  feesGrade = null;
+  allFees: [] = null;
   form: FormGroup;
 
   constructor(private fB: FormBuilder,
-              private httpServ: HttpService) { }
+              private httpServ: HttpService,
+              private studServ: StudentsService) { }
 
   ngOnInit() {
-    this.httpServ.emitGrade.subscribe((grades: any) => this.grades = grades);
+    this.getFees();
+    this.studServ.getGrades();
     this.initForm();
   }
 
@@ -25,9 +32,9 @@ export class AddFeesComponent implements OnInit {
     this.form = this.fB.group({
       grade: ['', Validators.required],
       old_schFees: ['', Validators.required],
-      schFees: [''],
+      schFees: [null],
       old_booksFees: ['', Validators.required],
-      booksFees: [''],
+      booksFees: [null],
     })
   }
 
@@ -37,10 +44,24 @@ export class AddFeesComponent implements OnInit {
 
     this.httpServ.postRequest('school/fees', data)
       .subscribe(
-        results => console.log(results),
+        results => {
+          this.getFees();
+        },
         error => console.log(error)
       )
     ;
+  }
+
+  getFees() {
+    this.httpServ.getRequest('school/fees').subscribe(
+      (results: Response) => this.feesGradesFn(results),
+      (error: Response) => console.log(error)
+    );
+  }
+
+  feesGradesFn(feesRes) {
+    this.allFees = feesRes['data']['data'];
+    this.feesGrade = this.allFees.map((fees: any) => {return fees.grade_id});
   }
 
 }

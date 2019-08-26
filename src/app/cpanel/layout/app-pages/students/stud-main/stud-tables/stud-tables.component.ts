@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/map'
 import { CompHttpService } from 'src/app/cpanel/shared/components/comp-http.service';
+import { UsersService } from 'src/app/cpanel/shared/services/http/users.service';
 
 @Component({
   selector: 'stud-tables',
@@ -13,11 +14,11 @@ export class StudTablesComponent implements OnInit {
   tableColumns: string[] = ['id', 'name', 'birthDate', 'phoneNumber', 'mobilePhone', 'address', 'image'];
 
   tableObj = {
-    tableColumns: this.tableColumns,
+    tableCol: this.tableColumns,
     type: 'student'
   };
 
-  constructor(private compHttp: CompHttpService) {
+  constructor(private usersServ: UsersService) {
 
   }
 
@@ -26,7 +27,7 @@ export class StudTablesComponent implements OnInit {
   }
 
   getStudents() {
-    this.compHttp.getRequest('http://127.0.0.1:8000/students');
+    this.usersServ.getUsers('students');
   }
 
   handelResults(results: Response) {

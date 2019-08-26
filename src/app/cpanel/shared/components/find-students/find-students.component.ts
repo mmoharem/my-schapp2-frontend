@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CompHttpService } from '../comp-http.service';
 import { StudentsService } from '../../services/students.service';
 import { select } from "@angular-redux/store";
+import { UsersService } from '../../services/http/users.service';
 
 @Component({
   selector: 'findStudents',
@@ -18,7 +19,7 @@ export class FindStudentsComponent implements OnInit {
 
   constructor(private studServ: StudentsService,
               private fB: FormBuilder,
-              private compHttp: CompHttpService) { }
+              private usersServ: UsersService) { }
 
   ngOnInit() {
     // this.grades = this.studServ.grades;
@@ -46,11 +47,11 @@ export class FindStudentsComponent implements OnInit {
     }
 
     if(this.dataTypeInp === 'student') {
-      this.compHttp.searchRequest('http://127.0.0.1:8000/students/search', formData);
+      this.usersServ.searchUser('http://127.0.0.1:8000/students/search', formData);
     } else
 
     if(this.dataTypeInp === 'employee') {
-      this.compHttp.searchRequest('http://127.0.0.1:8000/employee/search', formData);
+      this.usersServ.searchUser('http://127.0.0.1:8000/employee/search', formData);
     }
   }
 }

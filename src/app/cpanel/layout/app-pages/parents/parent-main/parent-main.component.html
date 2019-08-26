@@ -1,0 +1,36 @@
+<div class="parent-main-cont comp-cont__margin" *ngIf="student">
+
+  <!-- <mat-card class="form-card-cont parent-second-cont">
+    <div class="parent-btn">
+      <button class="app-table__btn" [class.btn-blue]="parentServ.father" color="warn" mat-raised-button (click)="fatherFn()">Father</button>
+      <button class="app-table__btn" [class.btn-blue]="parentServ.mother" color="warn" mat-raised-button (click)="motherFn()">Mother</button>
+      <button class="app-table__btn" color="warn" mat-raised-button (click)="siblingsFn()">Siblings</button>
+      <button class="app-table__btn" color="primary" mat-raised-button (click)="addStudent()">Add New Student</button>
+    </div>
+  </mat-card> -->
+
+  <mat-card class="form-card-cont">
+
+    <div class="parent-btn">
+      <div class="parent-btn__content">
+        <button class="app-table__btn" [class.btn-blue]="parentServ.father" color="warn" mat-raised-button (click)="fatherFn()">Father</button>
+        <button class="app-table__btn" [class.btn-blue]="parentServ.mother" color="warn" mat-raised-button (click)="motherFn()">Mother</button>
+        <button class="app-table__btn" color="warn" mat-raised-button (click)="siblingsFn()">Siblings</button>
+        <button class="app-table__btn" color="primary" mat-raised-button (click)="addStudent()">Add New Student</button>
+      </div>
+    </div>
+
+    <mat-card-title class="card-title">Parents</mat-card-title>
+    <p class="parent-text">
+      <span *ngIf="!parentServ.parents">There is no Parents assigned to: {{ student.firstName | titlecase }}, yet.</span>
+      <span *ngIf="parentServ.parents && !parentServ.father">There is no Father assigned to: {{ student.firstName | titlecase }}, yet.</span>
+      <span *ngIf="parentServ.parents && !parentServ.mother">There is no Mother assigned to: {{ student.firstName | titlecase }}, yet.</span>
+      <span *ngIf="parentServ.father && parentServ.mother">Show {{ student.firstName | titlecase }} Parents.</span>
+    </p>
+  </mat-card>
+
+  <mat-card class="form-card-cont parent-third-cont">
+    <router-outlet></router-outlet>
+  </mat-card>
+
+</div>

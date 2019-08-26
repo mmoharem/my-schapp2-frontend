@@ -46,6 +46,11 @@
     width: 32%;
   }
 
+  &__col-3-26 > * {
+    // align-self: stretch;
+    width: 26%;
+  }
+
   &__col-4 > * {
     // align-self: stretch;
     width: 23%;

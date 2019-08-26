@@ -1,0 +1,35 @@
+<div class="bank-inv-cont">
+  <!-- <div class="test">
+      <p>
+          bank-invoice works!
+        </p>
+  </div> -->
+  <div class="inv-content">
+    <ul class="inv-content__list">
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Student Name :</p>
+        <p>{{ (printStore | async).dataObj.name }}</p>
+      </li>
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Grade :</p>
+        <p>{{ (printStore | async).dataObj.grade }}</p>
+      </li>
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Issue Date :</p>
+        <p>{{ (printStore | async).dataObj.updated_at }}</p>
+      </li>
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Bank :</p>
+        <p>ABC El Harram Branch</p>
+      </li>
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Account No. :</p>
+        <p>{{ (printStore | async).dataObj.accNo }}</p>
+      </li>
+      <li class="inv-content__list--items">
+        <p class="inv-content__list--items__field">Amount :</p>
+        <p>{{ (printStore | async).dataObj.amount }} LE.</p>
+      </li>
+    </ul>
+  </div>
+</div>
